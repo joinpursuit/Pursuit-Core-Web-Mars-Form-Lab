@@ -18,6 +18,12 @@ handleChange = (event) => {
     })
 } 
 
+// formSubmitted = () => {
+//     return(
+//         <div>Whussup</div>
+//     )
+// }
+
 handleSubmit = (event) => {
     event.preventDefault()
     this.setState(prevState => {
@@ -33,6 +39,11 @@ handleFormSubmitted = (event) => {
 
 render() {
     console.log(this.state)
+    if(this.state.formCompleted !== false){
+        return (
+            <div>FORM COMPLETED</div>
+        )
+    }
     return(
         <>
          <h1>Mission to Mars Registration From</h1>
@@ -78,7 +89,6 @@ render() {
                     <br/>
                     <button type="Submit" onClick={this.handleSubmit}>Submit</button>
                 </form>
-                <button>Form Submitted</button>
             </div>
     </>
     ) 
