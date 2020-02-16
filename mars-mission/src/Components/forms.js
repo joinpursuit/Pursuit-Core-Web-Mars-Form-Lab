@@ -1,6 +1,7 @@
 import React from "react";
 import { countriesList } from "./countriesList/countries";
 import { diets } from "./Dietary/diets";
+import "./css/forms.css";
 
 class Form extends React.Component {
   state = {
@@ -85,7 +86,8 @@ class Form extends React.Component {
     const { fullName, date, countries, diet, bodyResponse } = this.state;
     return (
       <div>
-        <form onSubmit={this.handleForm}>
+        <form className="form" onSubmit={this.handleForm}>
+        <h4>Fill Out Name:</h4>
           <input
             type="text"
             value={fullName}
@@ -94,6 +96,7 @@ class Form extends React.Component {
             onChange={this.handleChange}
             required
           />
+          <h4>Date of Birth:</h4>
           <input
             type="date"
             value={date}
@@ -101,6 +104,7 @@ class Form extends React.Component {
             onChange={this.handleChange}
             required
           />
+          <h4>Country of Origin:</h4>
           <select
             value={countries}
             name="countries"
@@ -108,9 +112,11 @@ class Form extends React.Component {
           >
             {this.populateCountries()}
           </select>
+          <h4>Select Dietary Preferences:</h4>
           <select value={diet} name="diet" onChange={this.handleChange}>
             {this.populateDiets()}
           </select>
+          <h4>Why Do You Want to be a Mars Explorer?:</h4>
           <input
             type="text"
             value={bodyResponse}
