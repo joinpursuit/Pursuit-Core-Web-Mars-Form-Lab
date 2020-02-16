@@ -11,7 +11,13 @@ class Form extends Component{
         diet: "",
         explorer: "",
         formCompleted: false,
-        formSubmitted: false
+        formSubmitted: false,
+        breathe:"no",
+        married:false,
+        situation:"",
+        claustrophobic:false,
+        familyHistory:"",
+        living:{}
     }
 
     // populateCountry() {
@@ -46,9 +52,36 @@ class Form extends Component{
         p.hidden = false;
     }
     
+
+    handleCheckBox = (e,state)=>{
+        // debugger
+        if(e.target.checked){
+            let question = document.createElement("input")
+            question.type="Number"
+            question.placeholder="How Many...?"
+            e.target.parentNode.appendChild(question)
+            let submit = document.createElement("button")
+            submit.innerText="submit"
+            let inputKey = e.target.value
+            // console.log(e.target.value)
+            submit.onclick=function submitHowMany (name,value,obj){
+                name=inputKey
+                value =question.value
+                obj=state
+                obj[name]=value
+                console.log(obj)     
+            }
+            
+            e.target.parentNode.appendChild(submit)
+            let br = document.createElement("br")
+            e.target.parentNode.appendChild(br)
+        }
+    }
+
+    
     render(){
-        console.log(this.state);
-        let { name, birthday, selectedCountry, diet, explorer } = this.state;
+        // console.log(this.state);
+        let { name, birthday, selectedCountry, diet, explorer,breathe,married,situation,claustrophobic,familyHistory,living } = this.state;
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
@@ -93,6 +126,125 @@ class Form extends Component{
                             <input type="text" name="explorer" onChange={this.handleChange}></input>
                         </label>
                         <br></br>
+                        <label>
+                            Can you breathe underwater longer than 1 minute?
+                            <br></br>
+                        </label>
+                        <label>
+                                Yes
+                            <input type="radio" value="yes" name="breathe"></input>
+                            <br></br>
+                        </label>
+                        <label>
+                                No
+                            <input type="radio" value="no" name="breathe"></input>
+                            <br></br>
+                        </label>
+                        <label>
+                                I Dont Know
+                            <input type="radio" value="I dont know" name="breathe"></input>
+                            <br></br>
+                        </label>
+                        <label>
+                            What is your marital status?
+                            <br></br>
+                        </label>
+                        <label>
+                            Married
+                            <input type="radio" value="true" name="married"></input>
+                            <br></br>
+                        </label>
+                        <label>
+                            Unmarried
+                            <input type="radio" value="false" name="married"></input>
+                            <br></br>
+                        </label>
+                        <label>
+                            When you are in a stressful or difficult situation, how do you most frequently react?
+                            <br></br>
+                        </label>
+                        <label>
+                            Determination: I continue to confront the situation
+                            <input type="radio" value="Determination" name="situation"></input>
+                            <br></br>
+                        </label>
+                        <label>
+                            Defeat: I stop confronting the situation.
+                            <input type="radio" value="Defeat" name="situation"></input>
+                            <br></br>
+                        </label>
+                        <label>
+                            Anger: I become upset at the situation.
+                            <input type="radio" value="Anger" name="situation"></input>
+                            <br></br>
+                        </label>
+                        <label>
+                        Resourcefulness: I seek help to confront the situation.
+                            <input type="radio" value="Resourcefulness" name="situation"></input>
+                            <br></br>
+                        </label>
+                        <label>
+                            Are you claustrophobic?
+                            <br></br>
+                        </label>
+                        <label>
+                                Yes
+                            <input type="radio" value="yes" name="claustrophobic"></input>
+                            <br></br>
+                        </label>
+                        <label>
+                                No
+                            <input type="radio" value="no" name="claustrophobic"></input>
+                            <br></br>
+                        </label>
+                        <label>
+                                I Dont Know
+                            <input type="radio" value="I dont know" name="claustrophobic"></input>
+                            <br></br>
+                        </label>
+
+                        <label>
+                        Does your family have a history of (check all that apply):
+                            <br></br>
+                        </label>
+                        <label>
+                            Cancer
+                            <input type="checkbox" value="Cancer" name="familyHistory"></input>
+                            <br></br>
+                        </label>
+                        <label>
+                            Heart Disease
+                            <input type="checkbox" value="Heart Disease" name="familyHistory"></input>
+                            <br></br>
+                        </label>
+                        <label>
+                                Diabetes
+                            <input type="checkbox" value="Diabetes" name="familyHistory"></input>
+                            <br></br>
+                        </label> 
+                        <label>
+                        Do you have any living (check all that apply)::
+                            <br></br>
+                        </label>
+                        <label id="siblings">
+                            Siblings
+                            <input type="checkbox" value="siblings" name="living" onChange={(e)=>this.handleCheckBox(e,living)}></input>
+                            <br></br>
+                        </label>
+                        <label id="parents">
+                            Parents
+                            <input type="checkbox" value="Parents"  name="living" onChange={(e)=>this.handleCheckBox(e,living)}></input>
+                            <br></br>
+                        </label>
+                        <label id="grandparents">
+                            Grandparents
+                            <input type="checkbox" value="Grandparents"  name="living" onChange={(e)=>this.handleCheckBox(e,living)}></input>
+                            <br></br>
+                        </label> 
+
+
+                        <br></br>
+
                         <button type="submit">Submit</button>
 
                         <div hidden id="formSubmitted">
