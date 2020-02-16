@@ -1,13 +1,19 @@
 import React from "react";
-import countries from "./country"
+import countries from "./country";
+
+
 class Form extends React.Component {
   state = {
     name : "",
-    dateofbirth : "yyyy/mm/dd",
+    dateofbirth : "yyyy-MM-dd",
     country: "",
-    dietary:""
+    dietary:"",
+    marsResponse:"",
+    formCompleted: false,
+    formSubmitted: true
   }
   createOptions = () => {
+
     return countries.map(country=>{
       return(
         <option value ={country.name} key={country.code} id={country.code}>{country.name}</option>
@@ -15,6 +21,45 @@ class Form extends React.Component {
       )
     })
   }
+  checkCompleted = (e) => {
+    e.preventDefault()
+
+    if(this.state.name && this.state.dateofbirth && this.state.country && this.state.marsResponse) {
+      this.setState({
+        formCompleted: true
+
+      })
+
+    }
+  
+  }
+
+  populateAnswer = () => {
+
+    if(this.state.formCompleted){
+
+      return(
+        <>
+        <p> {this.state.name}  </p>
+        <p> {this.state.country} </p>
+        <p> {this.state.dietary}</p> 
+        <p> {this.state.marsResponse}</p>
+        <p>Are you sure if the information above is correct!</p>
+        <button
+        onClick={this.formSubmitted}
+        >Confirm
+        </button>
+           </>
+       
+      )
+    }
+  }
+
+  formSubmitted = () => {
+    this.setState({formSubmitted: true})
+  }
+
+
   handleChange = e => {
     console.log(e.target.value)
     this.setState({
@@ -22,13 +67,13 @@ class Form extends React.Component {
     });
     
   }
-
   
   render(){
     return(
       <div>
         <h1>Mars Form</h1>
-        <form>
+        <form
+        onSubmit={this.checkCompleted}>
         <label>
           Name: 
           <input 
@@ -82,13 +127,34 @@ class Form extends React.Component {
         </label>
 
       <br/>
+
+       <input
+       name="marsResponse"
+       id="marsResponse"
+       type="text"
+       value={this.state.marsResponse}
+       onChange={this.handleChange}
+       />
+
+       <br/>
+
+       <button
+       name="formCompleted"
+       type="submit"
+       
+       >Submit</button>
       
         </form>
+      <div>
+        {this.populateAnswer()}
+        
+      </div>
       </div>
 
       
     )
   }
+
 
 }
 
