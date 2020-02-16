@@ -11,6 +11,8 @@ class Form extends React.Component{
         reason:""
     }
     handleChange=(e)=>{
+        let results=document.querySelector("#results")
+        results.innerHTML=""
         console.log(this.state)
         this.setState({
             [e.target.name]:e.target.value
@@ -18,18 +20,18 @@ class Form extends React.Component{
     }
     handleSubmit=(e)=>{
         e.preventDefault()
-        let form=document.querySelector("#reg")
         let results=document.querySelector("#results")
-        form.reset()
+        let form=document.querySelector("#reg")
         let h4 = document.createElement("h4")
         h4.innerText="form completed"
         results.appendChild(h4)
         
-        for(key in this.state){
+        for(let key in this.state){
             let p = document.createElement("p")
             p.innerText= `${key}: ${this.state[key]}`
             results.appendChild(p)
         }
+        form.reset()
     }
     
     componentDidMount(){
