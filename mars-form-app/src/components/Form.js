@@ -9,11 +9,14 @@ import '../components/Form.css'
 class Form extends React.Component {
     state = {
         name: "",
-        date: new Date().toLocaleString(),
+        date: new Date().toLocaleDateString(),
         country: "United States",
         diet: "vegan",
-        body: ""
-
+        body: "",
+        q1: "yes",
+        q2: "Unmarried",
+        q3: "defeat",
+        q4: ""
     }
 
     handleChange = (e) => {
@@ -24,26 +27,29 @@ class Form extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let { name, date, country, diet, body } = this.state
+        let { name, date, country, diet, body, q1, q2, q3 } = this.state
 
-        console.log({
+        console.log("this is the handleSubmit" + {
             fullname: name,
             dob: date,
             origin: country,
             food: diet,
-            summary: body
+            summary: body,
+            breath: q1,
+            married: q2,
+            reaction: q3
         })
     }
 
     populateCountries =() => {
-        return countries.map(country => <option value={country.name}>{country.name}</option>
+        return countries.map(country => <option key={country.code} value={country.name}>{country.name}</option>
         )
     }
 
 
     render(){
         console.log(this.state)
-        let { name, date, country, diet, body } = this.state
+        let { name, date, country, diet, body, q1, q2, q3, q4} = this.state
 
         return(
             <div>
@@ -83,6 +89,69 @@ class Form extends React.Component {
                 <textarea name="body" value={body}rows="10" cols="80" onChange={this.handleChange}/>
                 </label>
                 </div>
+                <div className="radio">
+                        Can you breathe under water longer than one minute?
+                    <label>
+                    Yes
+                        <input type="radio" name="q1" value="yes" checked={q1 === "yes"} onChange={this.handleChange}/>
+                    </label>
+                    <label>
+                    No
+                        <input type="radio" name="q1" value="no" checked={q1 === "no"} onChange={this.handleChange}/>
+                    </label>
+                    <label>
+                    I don't know
+                        <input type="radio" name="q1" value="I don't know" checked={q1 === "I don't know"} onChange={this.handleChange}/>
+                    </label>
+                    <br />
+                    What is your marital status?
+                    <label>
+                    Married
+                        <input type="radio" name="q2" value="Married" checked={q2 === "Married"} onChange={this.handleChange}/>
+                    </label>
+                    <label>
+                    Unmarried
+                        <input type="radio" name="q2" value="Unmarried" checked={q2 === "Unmarried"} onChange={this.handleChange}/>
+                    </label>
+                    <br />
+                    <br />
+                    When you are in a stressful or difficult situation, how do you most frequently react?
+                    <div className="reaction">
+                    <label>
+                    Determination: I continue to confront the situation
+                    <input type="radio" name="q3" value="determination" checked={q3 === "determination"} onChange={this.handleChange}/>
+                    </label>
+                    <label>
+                    Defeat: I stop confronting the situation
+                    <input type="radio" name="q3" value="defeat" checked={q3 === "defeat"} onChange={this.handleChange}/>
+                    </label>
+                    <label>
+                    Anger: I become upset at the situation
+                    <input type="radio" name="q3" value="anger" checked={q3 === "anger"} onChange={this.handleChange}/>
+                    </label>
+                    <label>
+                    Resourcefulness: I seek help to confront the situation
+                    <input type="radio" name="q3" value="resourcefulness" checked={q3 === "resourcefulness"} onChange={this.handleChange}/>
+                    </label>
+                    </div>
+          
+                </div>
+                <div className="checkbox">
+                    Does your family have a history of (check all that apply)
+                    <label>
+                    Cancer
+                    <input type="checkbox" name="q4" value="cancer" onChange={this.handleChange}/>
+                    </label>
+                    <label>
+                    Heart Disease
+                    <input type="checkbox" name="q4" value="heart" onChange={this.handleChange}/>
+                    </label>
+                    <label>
+                    Diabetes
+                    <input type="checkbox" name="q4" value="diabetes" onChange={this.handleChange}/>
+                    </label>
+                </div>
+                
                 <div className="button">
                 <button type="submit">Submit</button>
                 </div>

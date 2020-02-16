@@ -25,3 +25,12 @@ label {
     color: darkred;
     font-weight: bold;
 }
+
+.reaction {
+    display:flex;
+    flex-direction: column;
+}
+
+.reaction input{
+    color: black;
+}
