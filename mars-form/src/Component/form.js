@@ -10,7 +10,8 @@ class Form extends Component{
         countries: countries,
         country: "",
         dietPref: "omnivore",
-        whyMars: ""
+        whyMars: "",
+        formCompleted: false
 
     }
     handleFirstName = e =>{
@@ -107,6 +108,175 @@ class Form extends Component{
                         Why Do You Want To be A Mars Explorer?
                         <br/>
                         <textarea id="text" type="text"  onChange = {this.handleMars} required/>
+                    </label>
+                    <br/>
+                    <label>
+                        1.  Can you Breathe Underwater for longer then a minute?
+                        <br/>
+                            <label>
+                                <input
+                                     type="radio"
+                                     name="q1"
+                                     value="yes"
+                                    //  checked={breathe === yes}
+                                     onChange={this.handleQ1}
+
+                                />
+                                Yes
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="q1"
+                                value="no"
+
+                            />
+                            No
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="q1"
+                                value="Idk"
+                            />
+                            I don't know
+                        </label>
+
+                    </label>
+                    <br/>
+                    <label>
+                        2.  What is your marital status?
+                        <br/>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="q2"
+                                    value="married"
+                                />
+                                Married
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="q2"
+                                    value="unmarried"
+                                />
+                                Unmarried
+                            </label>
+                    </label>
+                    <br/>
+                    <label>
+                        3.  When you are in a stressful situation, how do you most frequently react?
+                        <br/>
+                            <label>
+                                    <input
+                                        type="radio"
+                                        name="q3"
+                                        value="1"
+                                    />
+                                Determination: I continue to confront the situation
+                            </label>
+                            <label>
+                                    <input
+                                        type="radio"
+                                        name="q3"
+                                        value="2"
+                                    />
+                                Defeat: I stop confronting the situation
+                            </label>
+                            <label>
+                                    <input
+                                        type="radio"
+                                        name="q3"
+                                        value="3"
+                                    />
+                                Anger: I become upset at the situation 
+                            </label>
+                            <label>
+                                    <input
+                                        type="radio"
+                                        name="q3"
+                                        value="4"
+                                    />
+                                Resourcefulness: I seek help to confront the situation
+                            </label>
+                    </label>
+                    <br/>
+                    <label>
+                        4.  Are you claustrophobic?
+                    </label>
+                    <br/>
+                        <label>
+                            <input
+                                type="radio"
+                                name="q4"
+                                value="yes"
+                            />
+                            Yes
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="q4"
+                                value="no"
+                            />
+                            No 
+                        </label>
+                        <label>
+                                <input
+                                    type="radio"
+                                    name="q4"
+                                    value="Idk"
+                                />
+                            I don't know
+                        </label>
+                        <br/>
+                    <label/>
+                    <label>
+                      1.  Does your family have a history of? (check all that apply):
+                      <br/>
+                        <label>
+                            <input
+                                type="checkbox"
+                                //checked={agree}
+                            />
+                            Cancer
+                        </label>
+                        <label>
+                            <input
+                                type="checkbox"
+                            />
+                            Heart Disease
+                        </label>
+                        <label>
+                            <input
+                                type="checkbox"
+                            />
+                            Diabetes
+                        </label>
+                    </label>
+                    <br/>
+                    <label>
+                        2.  Do you have any living (check all that apply):
+                        <br/>
+                        <label>
+                            <input
+                                type="checkbox"
+                            />
+                            Siblings?
+                        </label>
+                        <label>
+                            <input
+                                type="checkbox"
+                            />
+                            Parents?
+                        </label>
+                        <label>
+                            <input
+                                type="checkbox"
+                            />
+                            Grandparents?
+                        </label>
                     </label>
                     <br/>
                     <button type="submit">
