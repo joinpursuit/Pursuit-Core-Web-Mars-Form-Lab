@@ -1,0 +1,27 @@
+form {
+    background-color: rgba(245, 245, 245, 0.5);
+    border-radius: 25px;
+   
+}
+
+.personalInfo {
+    display: flex;
+    justify-content: center;
+}
+
+input, select {
+    margin: 10px;
+}
+
+.question, .diet{
+    margin-left: 123px;
+}
+
+.button {
+    margin-left: 123px;
+}
+
+label {
+    color: darkred;
+    font-weight: bold;
+}

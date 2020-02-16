@@ -1,5 +1,6 @@
 import React from 'react';
 import countries from './countries'
+import '../components/Form.css'
 // import axios from 'axios';
 
 
@@ -21,6 +22,19 @@ class Form extends React.Component {
         })
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+        let { name, date, country, diet, body } = this.state
+
+        console.log({
+            fullname: name,
+            dob: date,
+            origin: country,
+            food: diet,
+            summary: body
+        })
+    }
+
     populateCountries =() => {
         return countries.map(country => <option value={country.name}>{country.name}</option>
         )
@@ -34,7 +48,8 @@ class Form extends React.Component {
         return(
             <div>
                 <h1>Mission To Mars Registration Form</h1>
-                <form>
+                <form onSubmit={this.handleSubmit}>
+                <div className="personalInfo">
                 <label>
                 What is your name?
                 <input type="text" value={name} name="name" onChange={this.handleChange} />
@@ -49,6 +64,8 @@ class Form extends React.Component {
                     {this.populateCountries()}
                 </select>
                 </label>
+                </div>
+                <div className="diet">
                 <label>
                 What is your dietary preference?
                 <select name="diet" value={diet} onChange={this.handleChange}>
@@ -57,11 +74,18 @@ class Form extends React.Component {
                     <option value="vegan">Vegan</option>
                 </select>
                 </label>
+                </div>
+                <div className="question">
                 <label>
                 Why do you want to be a Mars explorer? 
+                <br />
+                <br />
                 <textarea name="body" value={body}rows="10" cols="80" onChange={this.handleChange}/>
                 </label>
+                </div>
+                <div className="button">
                 <button type="submit">Submit</button>
+                </div>
             </form>
             </div>
         )
