@@ -4,7 +4,14 @@ import countries from "./countries"
 
 class Form extends Component{
     state = {
-        countries: countries
+        name: "",
+        birthday: "",
+        countries: countries,
+        selectedCountry: "United States",
+        diet: "",
+        explorer: "",
+        formCompleted: false,
+        formSubmitted: false
     }
 
     // populateCountry() {
@@ -15,30 +22,52 @@ class Form extends Component{
     //         // this.setState({countries});
     //     })
     // }
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.setState({
+            formCompleted: !this.state.formCompleted
+        })
+        if(this.state.formCompleted === true) {
+            let div = document.querySelector("#formSubmitted");
+            div.hidden = false;
+        }
+    }
 
+    handleSubmitComplete = (e) => {
+        e.preventDefault();
+        debugger;
+        let p = document.querySelector("#applicationClose");
+        p.hidden = false;
+    }
     
     render(){
-        // console.log(this.state);
+        console.log(this.state);
+        let { name, birthday, selectedCountry, diet, explorer } = this.state;
         return(
             <div>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <h1>
                         Mission to Mars Registration Form
                     </h1>
                     <label>
                         Name:
-                        <input type="text" placeholder="What's your name?"></input>
+                        <input type="text" placeholder="What's your name?" name="name" onChange={this.handleChange}></input>
                     </label>
                     <br></br>
                     <label>
                         Date of Birth:
-                        <input type="date"></input>
+                        <input type="date" name="birthday" onChange={this.handleChange}></input>
                     </label>
                     <br></br>
                     <label>
                         Country of Origin:
                         {/* <select id="countryList" onClick={this.populateCountry}> */}
-                        <select id="countryList">
+                        <select id="countryList" name="selectedCountry" onChange={this.handleChange}>
                             <option disabled>Select Country</option>
                             { this.state.countries.map(country => 
                             <option key={country.code}>{country.name}</option>
@@ -49,12 +78,28 @@ class Form extends Component{
                     <br></br>
                     <label>
                         Dietary Preference:
-                        <select >
+                        <select name="diet" onChange={this.handleChange}>
                             <option disabled>Select Dietary Preference</option>
                             <option>Omnivore</option>
-                            <option></option>
+                            <option>Vegetarian</option>
+                            <option>Vegan</option>
                         </select>
                     </label>
+                    <br></br>
+                    <label>
+                        Why do you want to be a Mars explorer?
+                        <input type="text" name="explorer" onChange={this.handleChange}></input>
+                    </label>
+                    <br></br>
+                    <button type="submit">Submit</button>
+
+                    <div hidden id="formSubmitted" onClick={this.handleSubmitComplete}>
+                        <p>Name: {name}, Birthday: {birthday}, Country of Origin: {selectedCountry}, Dietary Preference: {diet}, Why do you want to be a Mars explorer?: {explorer} </p>
+                        <p>Please confirm this information is correct.</p>
+                        <button type="submit">Confirm</button>
+                    </div>
+
+                    <p hidden id="applicationClose">Thank you for your application</p>
                 </form>
             </div>
         )
