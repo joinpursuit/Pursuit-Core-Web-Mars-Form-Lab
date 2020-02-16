@@ -1,11 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+// import './App.css';
+import Form from "./component/Form"
 
 function App() {
   return (
-    <div className="App">
-    Hello
+    <div>
+    <h1>Hello</h1>
+    <Form/>
+
     </div>
   );
 }
