@@ -1,5 +1,6 @@
 import React from 'react';
 import coo from "./coo"
+import './forms.css'
 
 class Form extends React.Component{
     state ={
@@ -14,6 +15,7 @@ class Form extends React.Component{
         react: "Determination",
         claustrophobic: "No",
         health: false,
+        family: false,
     }
     handleChange=(e)=>{
         let results=document.querySelector("#results")
@@ -65,7 +67,7 @@ class Form extends React.Component{
     
 
     render(){
-        let { diet, breathe, status, react, claustrophobic, health } = this.state
+        let { diet, breathe, status, react, claustrophobic, health, family } = this.state
         return(
             <form id="reg" onSubmit={this.handleSubmit}>
 
@@ -170,7 +172,16 @@ class Form extends React.Component{
          <label>
             Does your family have a history of (check all that apply):
 
-           Cancer <input type="checkbox" name="health" value="Cancer" checked={health === true} onChange={this.handleChange}/>
+           Cancer <input type="checkbox" name="health" value="Cancer" selected={health === true} onChange={this.handleChange}/>
+           Heart Disease <input type="checkbox" name="health" value="Heart Disease" selected={health === true} onChange={this.handleChange}/>
+           Diabetes <input type="checkbox" name="health" value="Diabetes" selected={health === true} onChange={this.handleChange}/>
+         </label>
+         <label>
+            Do you have any living (Check all that apply):
+
+            Siblings <input type="checkbox" name="family" value="true" selected={family === true} onChange={this.handleChange}/>
+            Parents <input type="checkbox" name="family" value="true" selected={family === true} onChange={this.handleChange}/>
+            Grandparents <input type="checkbox" name="family" value="true" selected={family === true} onChange={this.handleChange}/>
          </label>
             </form>
         )
