@@ -18,11 +18,15 @@ handleChange = (event) => {
     })
 } 
 
-// formSubmitted = () => {
-//     return(
-//         <div>Whussup</div>
-//     )
-// }
+formSubmitted = () => {
+    for(let key in this.state){
+        if(this.state[key] !== ""){
+            return (
+                <div>FORM COMPLETED</div>
+            )
+        }
+    }
+}
 
 handleSubmit = (event) => {
     event.preventDefault()
@@ -39,11 +43,13 @@ handleFormSubmitted = (event) => {
 
 render() {
     console.log(this.state)
-    if(this.state.formCompleted !== false){
-        return (
-            <div>FORM COMPLETED</div>
-        )
-    }
+    // for(let key in this.state){
+    //     if(this.state[key] !== ""){
+    //         return (
+    //             <div>FORM COMPLETED</div>
+    //         )
+    //     }
+    // }
     return(
         <>
          <h1>Mission to Mars Registration From</h1>
