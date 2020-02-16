@@ -52,6 +52,7 @@ class Form extends React.Component {
       bodyResponse,
       formCompleted
     } = this.state;
+    debugger
     console.log({
       full_name: fullName,
       date: date,
