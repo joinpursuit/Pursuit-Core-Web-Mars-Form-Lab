@@ -5,7 +5,10 @@ class Form extends React.Component {
   state = {
     name: "",
     birthDate: "yyyy-MM-dd",
-    country: "Afghanistan"
+    country: "",
+    dietaryPreference: "Omnivore",
+    whyMarsExpReason: "",
+    formCompleted: false,
   };
 
   handleChange = e => {
@@ -14,6 +17,13 @@ class Form extends React.Component {
       [e.target.name]: e.target.value
     });
   };
+
+  formCompleted = e => {
+      e.preventDefault();
+      let { name, birthDate, country, dietaryPreference, whyMarsExpReason } = this.state;
+      console.log(this.state);
+      
+  }
 
   populateSelect = () => {
       return countries.map(country => {
@@ -24,12 +34,11 @@ class Form extends React.Component {
   }
 
   render() {
-    let { name, birthDate, country } = this.state;
-    console.log(this.state);
+    let { name, birthDate, country, dietaryPreference, whyMarsExpReason } = this.state;
     return (
       <div>
         <h1>Mission to Mars Registration Form</h1>
-        <form onSubmit={e => e.preventDefault()}>
+        <form onSubmit={this.formCompleted}>
           <label>
             What is your name?
             <input
@@ -52,9 +61,24 @@ class Form extends React.Component {
           <label>
             Country:
             <select value={country} name="country" onChange={this.handleChange}>
+                <option value="" disabled>Pick a country</option>
                 {country = this.populateSelect()}
             </select>
           </label>
+          <label>
+              Dietary Preference?
+              <select value={dietaryPreference} name="dietaryPreference" onChange={this.handleChange}>
+                <option value="omnivore">Omnivore</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+              </select>
+          </label>
+          <br></br>
+          <label>
+              Why do you want to be a Mars explorer?
+              <input type="text" value={whyMarsExpReason} name="whyMarsExpReason" placeholder="WHY?" style={{width: "500px", height: "75px"}} onChange={this.handleChange}></input>
+          </label>
+          <button type="submit">Submit</button>
         </form>
       </div>
     );
