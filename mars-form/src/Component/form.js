@@ -1,5 +1,5 @@
 import React , {Component} from "react";
-import axios from 'axios'
+import countries from "./countries"
 
 
 class Form extends Component{
@@ -7,7 +7,8 @@ class Form extends Component{
         firstName: "",
         lastName: "",
         dateOfBirth: "",
-        countryOfOrigin:"Afghanistan"
+        countries: countries,
+        dietPref: "omnivore"
 
     }
     handleFirstName = e =>{
@@ -25,11 +26,25 @@ class Form extends Component{
             dateOfBirth: e.target.value
         })
     }
-    changeCountry =  (e) =>{
+    handleSelect = e =>{
+        e.preventDefault()
         this.setState({
-            countryOfOrigin: e.target.value
+            country: e.target.value
         })
     }
+   
+    populateSelect = () =>{   
+     return this.state.countries.map(country =>{
+         return <option value={country.name} key ="i">{country.name}</option>
+     }) 
+    }
+    handleDiet = e =>{
+        e.preventDefault()
+        this.setState({
+            dietPref: e.target.value
+        })
+    }
+
     render(){
 
         
@@ -40,19 +55,29 @@ class Form extends Component{
                     <label>
                     Please Enter The Information
                     <br></br>
-                     First Name : <input placeholder = "insert first name" onChange = {this.state.handleFirstName}/>
+                     First Name : <input placeholder = "insert first name" onChange = {this.handleFirstName}/>
                      <br/>
-                     Last Name : <input placeholder = "insert last name" onChange = {this.state.handleLastName}/>
+                     Last Name : <input placeholder = "insert last name" onChange = {this.handleLastName}/>
                      <br/>
                     </label>
                     <label>
-                        Date of Birth: <input type="date" onChange = {this.state.handleDateOfBirth}/>
+                        Date of Birth: <input type="date" onChange = {this.handleDateOfBirth}/>
+                    </label>
+                    <br/>
+                    <label>
+                        Country of Origin 
+                        <select value = {this.state.country} onChange = {this.handleSelect} key = "i">
+                            {this.populateSelect()}
+
+                        </select>     
+                        <br/>   
                     </label>
                     <label>
-                        Country of Origin <select value ="Afghanistan" onChange = {this.state.countryOfOrigin}>
-                            <option>Bangladesh</option>
-                            <option>USA</option>
-                            <option>India</option>
+                        Dietary Preferences
+                        <select value = {this.state.dietPref}>
+                            <option>Omnivore</option>
+                            <option>Vegetarian</option>
+                            <option>Vegan</option>
                         </select>
                     </label>
                 </form>
