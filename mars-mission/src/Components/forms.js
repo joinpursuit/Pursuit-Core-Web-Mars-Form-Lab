@@ -41,6 +41,24 @@ class Form extends React.Component {
     // debugger;
   };
 
+  completedForm = () => {
+    const { fullName, date, countries, diet, bodyResponse } = this.state;
+    debugger;
+    return (
+      <div>
+        <p>Form Completed</p>
+        <h3>{fullName}</h3>
+
+        <ul>
+          <li>{date}</li>
+          <li>{countries}</li>
+          <li>{diet}</li>
+          <li>{bodyResponse}</li>
+        </ul>
+      </div>
+    );
+  };
+
   handleForm = e => {
     // debugger;
     e.preventDefault();
@@ -52,7 +70,7 @@ class Form extends React.Component {
       bodyResponse,
       formCompleted
     } = this.state;
-    debugger
+    debugger;
     console.log({
       full_name: fullName,
       date: date,
@@ -104,7 +122,7 @@ class Form extends React.Component {
           <button type="submit" onClick={this.handleSubmit}>
             Submit
           </button>
-          {this.state.formCompleted === true ? <p>FORM COMPLETED</p> : false}
+          {this.state.formCompleted === true ? this.completedForm() : false}
         </form>
       </div>
     );
