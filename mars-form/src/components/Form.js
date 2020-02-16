@@ -69,6 +69,10 @@ class Form extends React.Component {
   }
   
   render(){
+    if(!this.state.formSubmitted){
+
+
+  
     return(
       <div>
         <h1>Mars Form</h1>
@@ -153,8 +157,13 @@ class Form extends React.Component {
 
       
     )
-  }
 
+  }else{
+return(
+  <p>THANK YOU FOR Submit your form</p>
+)
+  }
+}
 
 }
 
