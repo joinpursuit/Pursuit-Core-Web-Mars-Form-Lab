@@ -1,25 +1,29 @@
-import React, { createElement } from "react";
+import React from "react";
 import Select from 'react-select';
+import countriesList from "./countries list/countries"
 
-const months = [
-    { value: 'January', label: 'January' },
-    { value: 'Feburary', label: 'Feburary' },
-    { value: 'March', label: 'March' },
-    { value: 'April', label: 'April' },
-    { value: 'May', label: 'May' },
-    { value: 'June', label: 'June' },
-    { value: 'July', label: 'July' },
-    { value: 'August', label: 'August' },
-    { value: 'September', label: 'September' },
-    { value: 'October', label: 'October' },
-    { value: 'November', label: 'November' },
-    { value: 'December', label: 'December' },
-  ];
+//Creates options for select, however not using
+
+// const months = [
+//     { value: 'January', label: 'January' },
+//     { value: 'Feburary', label: 'Feburary' },
+//     { value: 'March', label: 'March' },
+//     { value: 'April', label: 'April' },
+//     { value: 'May', label: 'May' },
+//     { value: 'June', label: 'June' },
+//     { value: 'July', label: 'July' },
+//     { value: 'August', label: 'August' },
+//     { value: 'September', label: 'September' },
+//     { value: 'October', label: 'October' },
+//     { value: 'November', label: 'November' },
+//     { value: 'December', label: 'December' },
+//   ];
 
 class Form extends React.Component{
     state={
         fullName: "",
-        month:null
+        date:{},
+        countries:null
     }
 
     handleChange = (e) => {
@@ -29,21 +33,22 @@ class Form extends React.Component{
         })
     }
 
-    handleMonthChange = month => {
+    handleCountries = countries => {
         this.setState(
-          { month },
-          () => console.log(`Option selected:`, this.state.month)
+          { countries },
+          () => console.log(`Option selected:`, this.state.countries)
         );
       };
 
 
     render(){
-        const {fullName, month} = this.state;
+        const {fullName, date, countries} = this.state;
         return(
         <div>
             <form>
                <input type="text" value={fullName} placeholder="Enter Full Name" name="fullName" onChange={this.handleChange}/>
-               <Select type="date" value={month} name="month" onChange={this.handleMonthChange} options={months}/>
+               <input type="date" value={date} name="date" onChange={this.handleChange}/>
+               <Select value={countries} onChange={this.handleCountries} options={countriesList}/>
             </form>
         </div>
         ) 
