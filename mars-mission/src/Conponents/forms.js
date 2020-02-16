@@ -7,11 +7,12 @@ class Form extends React.Component {
     fullName: "",
     date: {},
     countries: {},
-    diet: {}
+    diet: {},
+    bodyResponse: ""
   };
 
   handleChange = e => {
-    debugger;
+    // debugger;
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -30,7 +31,7 @@ class Form extends React.Component {
   };
 
   render() {
-    const { fullName, date, countries, diet } = this.state;
+    const { fullName, date, countries, diet, bodyResponse } = this.state;
     return (
       <div>
         <form>
@@ -46,7 +47,6 @@ class Form extends React.Component {
             value={date}
             name="date"
             onChange={this.handleChange}
-            xs
           />
           <select
             value={countries}
@@ -58,6 +58,13 @@ class Form extends React.Component {
           <select value={diet} name="diet" onChange={this.handleChange}>
             {this.populateDiets()}
           </select>
+          <input
+            type="text"
+            value={bodyResponse}
+            name="bodyResponse"
+            placeholder="Tell us why?"
+            onChange={this.handleChange}
+          />
         </form>
       </div>
     );
