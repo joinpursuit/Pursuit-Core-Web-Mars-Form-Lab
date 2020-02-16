@@ -80,6 +80,14 @@ class Form extends Component{
                             <option>Vegan</option>
                         </select>
                     </label>
+                    <br/>
+                    <label>
+                        Why Do You Want To be A Mars Explorer?
+                        <br/>
+                        <textarea id="text">
+
+                        </textarea>
+                    </label>
                 </form>
             </div>
         )
