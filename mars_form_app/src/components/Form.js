@@ -16,8 +16,9 @@ class Form extends Component{
         married:false,
         situation:"",
         claustrophobic:false,
-        familyHistory:"",
-        living:{}
+        familyHistory:{},
+        living:{},
+        education:{}
     }
 
     // populateCountry() {
@@ -78,10 +79,22 @@ class Form extends Component{
         }
     }
 
+    handleRadioChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    } 
+
+    checkBox = (e) => {
+        debugger;
+        [e.target.name][e.target.value] = 1
+        console.log(e.target.name)
+    }
+
     
     render(){
-        // console.log(this.state);
-        let { name, birthday, selectedCountry, diet, explorer,breathe,married,situation,claustrophobic,familyHistory,living } = this.state;
+        console.log(this.state);
+        let { name, birthday, selectedCountry, diet, explorer,breathe,married,situation,claustrophobic,familyHistory,living,education } = this.state;
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
@@ -127,22 +140,22 @@ class Form extends Component{
                         </label>
                         <br></br>
                         <label>
-                            Can you breathe underwater longer than 1 minute?
+                            Can you hold your breath underwater for longer than 1 minute?
                             <br></br>
                         </label>
                         <label>
                                 Yes
-                            <input type="radio" value="yes" name="breathe"></input>
+                            <input type="radio" value="yes" name="breathe" onChange={this.handleRadioChange}></input>
                             <br></br>
                         </label>
                         <label>
                                 No
-                            <input type="radio" value="no" name="breathe"></input>
+                            <input type="radio" value="no" name="breathe" onChange={this.handleRadioChange}></input>
                             <br></br>
                         </label>
                         <label>
                                 I Dont Know
-                            <input type="radio" value="I dont know" name="breathe"></input>
+                            <input type="radio" value="I dont know" name="breathe" onChange={this.handleRadioChange}></input>
                             <br></br>
                         </label>
                         <label>
@@ -151,12 +164,12 @@ class Form extends Component{
                         </label>
                         <label>
                             Married
-                            <input type="radio" value="true" name="married"></input>
+                            <input type="radio" value="true" name="married" onChange={this.handleRadioChange}></input>
                             <br></br>
                         </label>
                         <label>
                             Unmarried
-                            <input type="radio" value="false" name="married"></input>
+                            <input type="radio" value="false" name="married" onChange={this.handleRadioChange}></input>
                             <br></br>
                         </label>
                         <label>
@@ -165,22 +178,22 @@ class Form extends Component{
                         </label>
                         <label>
                             Determination: I continue to confront the situation
-                            <input type="radio" value="Determination" name="situation"></input>
+                            <input type="radio" value="Determination" name="situation" onChange={this.handleRadioChange}></input>
                             <br></br>
                         </label>
                         <label>
                             Defeat: I stop confronting the situation.
-                            <input type="radio" value="Defeat" name="situation"></input>
+                            <input type="radio" value="Defeat" name="situation" onChange={this.handleRadioChange}></input>
                             <br></br>
                         </label>
                         <label>
                             Anger: I become upset at the situation.
-                            <input type="radio" value="Anger" name="situation"></input>
+                            <input type="radio" value="Anger" name="situation" onChange={this.handleRadioChange}></input>
                             <br></br>
                         </label>
                         <label>
                         Resourcefulness: I seek help to confront the situation.
-                            <input type="radio" value="Resourcefulness" name="situation"></input>
+                            <input type="radio" value="Resourcefulness" name="situation" onChange={this.handleRadioChange}></input>
                             <br></br>
                         </label>
                         <label>
@@ -189,17 +202,17 @@ class Form extends Component{
                         </label>
                         <label>
                                 Yes
-                            <input type="radio" value="yes" name="claustrophobic"></input>
+                            <input type="radio" value="yes" name="claustrophobic" onChange={this.handleRadioChange}></input>
                             <br></br>
                         </label>
                         <label>
                                 No
-                            <input type="radio" value="no" name="claustrophobic"></input>
+                            <input type="radio" value="no" name="claustrophobic" onChange={this.handleRadioChange}></input>
                             <br></br>
                         </label>
                         <label>
                                 I Dont Know
-                            <input type="radio" value="I dont know" name="claustrophobic"></input>
+                            <input type="radio" value="I dont know" name="claustrophobic" onChange={this.handleRadioChange}></input>
                             <br></br>
                         </label>
 
@@ -209,17 +222,17 @@ class Form extends Component{
                         </label>
                         <label>
                             Cancer
-                            <input type="checkbox" value="Cancer" name="familyHistory"></input>
+                            <input type="checkbox" value="Cancer" name="familyHistory" onChange={this.checkBox}></input>
                             <br></br>
                         </label>
                         <label>
                             Heart Disease
-                            <input type="checkbox" value="Heart Disease" name="familyHistory"></input>
+                            <input type="checkbox" value="Heart Disease" name="familyHistory" onChange={this.checkBox}></input>
                             <br></br>
                         </label>
                         <label>
                                 Diabetes
-                            <input type="checkbox" value="Diabetes" name="familyHistory"></input>
+                            <input type="checkbox" value="Diabetes" name="familyHistory" onChange={this.checkBox}></input>
                             <br></br>
                         </label> 
                         <label>
@@ -242,8 +255,43 @@ class Form extends Component{
                             <br></br>
                         </label> 
 
+                        <lable>
+                            Check all educational credentials you have received:
+                        </lable>
+                        <br></br>
+                        <label id="highSchool">
+                            High School Diploma or GED Equivalent
+                            <input type="checkbox" value="highSchool" name="education"></input>
+                            <br></br>
+                        </label>
+                        <label id="associates">
+                            Associate's Degree
+                            <input type="checkbox" value="associates" name="education"></input>
+                            <br></br>
+                        </label>
+                        <label id="bachelors">
+                            Bachelor's Degree
+                            <input type="checkbox" value="bachelors" name="education"></input>
+                            <br></br>
+                        </label>
+                        <label id="masters">
+                            Master's Degree
+                            <input type="checkbox" value="masters" name="education"></input>
+                            <br></br>
+                        </label>
+                        <label id="phd">
+                            PhD
+                            <input type="checkbox" value="phd" name="education"></input>
+                            <br></br>
+                        </label>
+                        <label id="other">
+                            Other
+                            <input type="text" value="other" name="education"></input>
+                            <br></br>
+                        </label>
 
                         <br></br>
+                        
 
                         <button type="submit">Submit</button>
 
