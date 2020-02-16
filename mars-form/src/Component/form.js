@@ -11,7 +11,7 @@ class Form extends Component{
         country: "",
         dietPref: "omnivore",
         whyMars: "",
-        formCompleted: false
+        formCompleted: false,
 
     }
     handleFirstName = e =>{
@@ -57,13 +57,20 @@ class Form extends Component{
             dateOfBirth: dateOfBirth,
             option:dietPref,
             country: country,
-            whyMars: whyMars
+            whyMars: whyMars,
+            onChange:this.handleChange
         })
     }
     handleMars = e => {
         
         this.setState({
              whyMars: e.target.value
+        })
+    }
+    handleChange = e => {
+        //this is the outline to handle the radio buttons
+        this.setState({
+            [e.target.name]:e.target.value
         })
     }
 
@@ -118,8 +125,8 @@ class Form extends Component{
                                      type="radio"
                                      name="q1"
                                      value="yes"
-                                    //  checked={breathe === yes}
-                                     onChange={this.handleQ1}
+                                     //checked= {"q1" === "yes"}
+                                     onChange={this.handleChange}
 
                                 />
                                 Yes
@@ -129,6 +136,9 @@ class Form extends Component{
                                 type="radio"
                                 name="q1"
                                 value="no"
+                                //checked= {"q1" === "no"}
+                                onChange={this.handleChange}
+
 
                             />
                             No
@@ -138,6 +148,9 @@ class Form extends Component{
                                 type="radio"
                                 name="q1"
                                 value="Idk"
+                                //checked= {"q1" === "Idk"}
+                                onChange={this.handleChange}
+
                             />
                             I don't know
                         </label>
@@ -152,6 +165,9 @@ class Form extends Component{
                                     type="radio"
                                     name="q2"
                                     value="married"
+                                    //checked= {"q2" === "married"}
+                                    onChange={this.handleChange}
+
                                 />
                                 Married
                             </label>
@@ -160,6 +176,9 @@ class Form extends Component{
                                     type="radio"
                                     name="q2"
                                     value="unmarried"
+                                    //checked= {"q2" === "unmarried"}
+                                    onChange={this.handleChange}
+
                                 />
                                 Unmarried
                             </label>
@@ -173,6 +192,9 @@ class Form extends Component{
                                         type="radio"
                                         name="q3"
                                         value="1"
+                                        //checked= {"q3" === "1"}
+                                        onChange={this.handleChange}
+
                                     />
                                 Determination: I continue to confront the situation
                             </label>
@@ -181,6 +203,9 @@ class Form extends Component{
                                         type="radio"
                                         name="q3"
                                         value="2"
+                                        //checked= {"q3" === "2"}
+                                        onChange={this.handleChange}
+
                                     />
                                 Defeat: I stop confronting the situation
                             </label>
@@ -189,6 +214,9 @@ class Form extends Component{
                                         type="radio"
                                         name="q3"
                                         value="3"
+                                        //checked= {"q3" === "3"}
+                                        onChange={this.handleChange}
+
                                     />
                                 Anger: I become upset at the situation 
                             </label>
@@ -197,6 +225,9 @@ class Form extends Component{
                                         type="radio"
                                         name="q3"
                                         value="4"
+                                        //checked= {"q3" === "4"}
+                                        onChange={this.handleChange}
+
                                     />
                                 Resourcefulness: I seek help to confront the situation
                             </label>
@@ -211,6 +242,9 @@ class Form extends Component{
                                 type="radio"
                                 name="q4"
                                 value="yes"
+                                //checked= {"q4" === "yes"}
+                                onChange={this.handleChange}
+
                             />
                             Yes
                         </label>
@@ -219,6 +253,9 @@ class Form extends Component{
                                 type="radio"
                                 name="q4"
                                 value="no"
+                                //checked= {"q4" === "no"}
+                                onChange={this.handleChange}
+
                             />
                             No 
                         </label>
@@ -227,13 +264,15 @@ class Form extends Component{
                                     type="radio"
                                     name="q4"
                                     value="Idk"
+                                    //checked= {"q4" === "Idk"}
+                                    onChange={this.handleChange}
                                 />
                             I don't know
                         </label>
                         <br/>
                     <label/>
                     <label>
-                      1.  Does your family have a history of? (check all that apply):
+                      5.  Does your family have a history of? (check all that apply):
                       <br/>
                         <label>
                             <input
@@ -257,7 +296,7 @@ class Form extends Component{
                     </label>
                     <br/>
                     <label>
-                        2.  Do you have any living (check all that apply):
+                        6.  Do you have any living (check all that apply):
                         <br/>
                         <label>
                             <input
@@ -277,6 +316,48 @@ class Form extends Component{
                             />
                             Grandparents?
                         </label>
+                    </label>
+                    <br/>
+                    <label>
+                        7. Check all educational credentials you have recieved:
+                        <br/>
+                            <label>
+                                <input
+                                    type="checkbox"
+                                />
+                                High School diploma or GED equivalent
+                            </label>
+                            <label>
+                                <input
+                                    type="checkbox"
+                                />
+                                Associate's Degree
+                            </label>
+                            <label>
+                                <input
+                                    type="checkbox"
+                                />
+                                Bachelor's Degree
+                            </label>
+                            <label>
+                                <input
+                                    type="checkbox"
+                                />
+                                Master's degree
+                            </label>
+                            <label>
+                                <input
+                                    type="checkbox"
+                                />
+                                PhD
+                            </label>
+                            <br/>
+                            <label>
+                                Other
+                                <input
+                                    type="text"
+                                />
+                            </label>
                     </label>
                     <br/>
                     <button type="submit">
