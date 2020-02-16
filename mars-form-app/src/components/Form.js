@@ -1,5 +1,5 @@
 import React from 'react';
-import countries from './../countries'
+import countries from './countries'
 // import axios from 'axios';
 
 
@@ -9,7 +9,7 @@ class Form extends React.Component {
     state = {
         name: "",
         date: new Date().toLocaleString(),
-        countries: [],
+        country: "United States",
         diet: "vegan",
         body: ""
 
@@ -22,15 +22,14 @@ class Form extends React.Component {
     }
 
     populateCountries =() => {
-        
-        countries.map(country => <option>{country.name}
-        </option>)
+        return countries.map(country => <option value={country.name}>{country.name}</option>
+        )
     }
 
 
     render(){
         console.log(this.state)
-        let { name, date, countries, diet, body } = this.state
+        let { name, date, country, diet, body } = this.state
 
         return(
             <div>
@@ -46,7 +45,7 @@ class Form extends React.Component {
                 </label>
                 <label>
                 What is your country of origin? 
-                <select value={countries}>
+                <select value={ country } name="country" onChange={this.handleChange}>
                     {this.populateCountries()}
                 </select>
                 </label>
