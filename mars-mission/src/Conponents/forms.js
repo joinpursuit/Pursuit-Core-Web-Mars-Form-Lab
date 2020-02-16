@@ -8,7 +8,8 @@ class Form extends React.Component {
     date: {},
     countries: {},
     diet: {},
-    bodyResponse: ""
+    bodyResponse: "",
+    formCompleted: false
   };
 
   handleChange = e => {
@@ -30,23 +31,56 @@ class Form extends React.Component {
     });
   };
 
+  handleSubmit = () => {
+    const { formCompleted } = this.state;
+    if (formCompleted === false) {
+      this.setState({
+        formCompleted: true
+      });
+    }
+    // debugger;
+  };
+
+  handleForm = e => {
+    // debugger;
+    e.preventDefault();
+    let {
+      fullName,
+      date,
+      countries,
+      diet,
+      bodyResponse,
+      formCompleted
+    } = this.state;
+    console.log({
+      full_name: fullName,
+      date: date,
+      country: countries,
+      diet: diet,
+      response: bodyResponse,
+      formCompleted: formCompleted
+    });
+  };
+
   render() {
     const { fullName, date, countries, diet, bodyResponse } = this.state;
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleForm}>
           <input
             type="text"
             value={fullName}
             placeholder="Enter Full Name"
             name="fullName"
             onChange={this.handleChange}
+            required
           />
           <input
             type="date"
             value={date}
             name="date"
             onChange={this.handleChange}
+            required
           />
           <select
             value={countries}
@@ -64,7 +98,12 @@ class Form extends React.Component {
             name="bodyResponse"
             placeholder="Tell us why?"
             onChange={this.handleChange}
+            required
           />
+          <button type="submit" onClick={this.handleSubmit}>
+            Submit
+          </button>
+          {this.state.formCompleted === true ? <p>FORM COMPLETED</p> : false}
         </form>
       </div>
     );
