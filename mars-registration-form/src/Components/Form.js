@@ -2,13 +2,12 @@ import React from "react";
 
 class Form extends React.Component{
 
-state = {firstName: "", lastName: "", date: ""}
+state = {firstName: "", lastName: "", dateOfBirth: ""}
 handleChange = (event) => {
     this.setState({
         [event.target.name]: event.target.value
     })
 } 
-
 
 render() {
     console.log(this.state)
@@ -20,8 +19,14 @@ render() {
                     <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleChange} placeholder="First Name"/>
                     <input type="text" name="lastName" value={this.state.lastName} onChange={this.handleChange} placeholder="Last Name"/>
                     <br/>
-                    <label for="start">Start date:</label>
-                    <input type="date" id="start" name="trip-start" value={this.state.date} min="1900-01-01" max="2020-02-15"/>
+                    <label for="start">
+                    Start date:
+                    <input type="date" id="start" name="dateOfBirth" value={this.state.dateOfBirth} min="1900-01-01" onChange={this.handleChange} max="2020-02-15"/>
+                    </label>
+                    <label>
+                    List of all Countries:
+                    <select value={this.state.dateOfBirth} onChange={this.handleChange}></select>
+                    </label>
                 </form>
             </div>
     </>
@@ -30,9 +35,5 @@ render() {
 
 
 }
-
-
-
-
 
 export default Form;
