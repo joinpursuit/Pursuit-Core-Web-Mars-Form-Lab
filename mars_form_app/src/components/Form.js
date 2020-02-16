@@ -40,8 +40,9 @@ class Form extends Component{
 
     handleSubmitComplete = (e) => {
         e.preventDefault();
-        debugger;
+        let clearPage = document.querySelector("#inputPage");
         let p = document.querySelector("#applicationClose");
+        clearPage.innerHTML = "";
         p.hidden = false;
     }
     
@@ -54,52 +55,54 @@ class Form extends Component{
                     <h1>
                         Mission to Mars Registration Form
                     </h1>
-                    <label>
-                        Name:
-                        <input type="text" placeholder="What's your name?" name="name" onChange={this.handleChange}></input>
-                    </label>
-                    <br></br>
-                    <label>
-                        Date of Birth:
-                        <input type="date" name="birthday" onChange={this.handleChange}></input>
-                    </label>
-                    <br></br>
-                    <label>
-                        Country of Origin:
-                        {/* <select id="countryList" onClick={this.populateCountry}> */}
-                        <select id="countryList" name="selectedCountry" onChange={this.handleChange}>
-                            <option disabled>Select Country</option>
-                            { this.state.countries.map(country => 
-                            <option key={country.code}>{country.name}</option>
-                            ) 
-                            }
-                        </select>
-                    </label>
-                    <br></br>
-                    <label>
-                        Dietary Preference:
-                        <select name="diet" onChange={this.handleChange}>
-                            <option disabled>Select Dietary Preference</option>
-                            <option>Omnivore</option>
-                            <option>Vegetarian</option>
-                            <option>Vegan</option>
-                        </select>
-                    </label>
-                    <br></br>
-                    <label>
-                        Why do you want to be a Mars explorer?
-                        <input type="text" name="explorer" onChange={this.handleChange}></input>
-                    </label>
-                    <br></br>
-                    <button type="submit">Submit</button>
+                    <div id="inputPage">
+                        <label>
+                            Name:
+                            <input type="text" placeholder="What's your name?" name="name" onChange={this.handleChange}></input>
+                        </label>
+                        <br></br>
+                        <label>
+                            Date of Birth:
+                            <input type="date" name="birthday" onChange={this.handleChange}></input>
+                        </label>
+                        <br></br>
+                        <label>
+                            Country of Origin:
+                            {/* <select id="countryList" onClick={this.populateCountry}> */}
+                            <select id="countryList" name="selectedCountry" onChange={this.handleChange}>
+                                <option disabled>Select Country</option>
+                                { this.state.countries.map(country => 
+                                <option key={country.code}>{country.name}</option>
+                                ) 
+                                }
+                            </select>
+                        </label>
+                        <br></br>
+                        <label>
+                            Dietary Preference:
+                            <select name="diet" onChange={this.handleChange}>
+                                <option disabled>Select Dietary Preference</option>
+                                <option>Omnivore</option>
+                                <option>Vegetarian</option>
+                                <option>Vegan</option>
+                            </select>
+                        </label>
+                        <br></br>
+                        <label>
+                            Why do you want to be a Mars explorer?
+                            <input type="text" name="explorer" onChange={this.handleChange}></input>
+                        </label>
+                        <br></br>
+                        <button type="submit">Submit</button>
 
-                    <div hidden id="formSubmitted" onClick={this.handleSubmitComplete}>
-                        <p>Name: {name}, Birthday: {birthday}, Country of Origin: {selectedCountry}, Dietary Preference: {diet}, Why do you want to be a Mars explorer?: {explorer} </p>
-                        <p>Please confirm this information is correct.</p>
-                        <button type="submit">Confirm</button>
+                        <div hidden id="formSubmitted">
+                            <p>Name: {name}, Birthday: {birthday}, Country of Origin: {selectedCountry}, Dietary Preference: {diet}, Why do you want to be a Mars explorer?: {explorer} </p>
+                            <p>Please confirm this information is correct.</p>
+                            <button type="button" onClick={this.handleSubmitComplete}>Confirm</button>
+                        </div>
                     </div>
 
-                    <p hidden id="applicationClose">Thank you for your application</p>
+                    <p hidden id="applicationClose">Thank you for your application!</p>
                 </form>
             </div>
         )
