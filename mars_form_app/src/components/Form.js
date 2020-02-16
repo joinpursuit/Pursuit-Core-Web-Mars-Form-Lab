@@ -1,22 +1,24 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import countries from "./countries"
 
 class Form extends Component{
     state = {
-        countryList: []
+        countries: countries
     }
 
-    populateCountry(e) {
-        e.preventDefault();
-        axios.get("http://vocab.nic.in/rest.php/country/json").then(res => {
-            const countryList = res.data;
-            this.setState({ countryList });
-        })
-    }
+    // populateCountry() {
+    //     // e.preventDefault();
+    //     axios.get("http://vocab.nic.in/rest.php/country/json").then(res => {
+    //         let {countries} = res.data;
+    //         // debugger
+    //         // this.setState({countries});
+    //     })
+    // }
 
     
     render(){
-        console.log(this.state);
+        // console.log(this.state);
         return(
             <div>
                 <form>
@@ -35,9 +37,13 @@ class Form extends Component{
                     <br></br>
                     <label>
                         Country of Origin:
+                        {/* <select id="countryList" onClick={this.populateCountry}> */}
                         <select id="countryList">
                             <option disabled>Select Country</option>
-                            { this.state.countryList.map(country => <option>{country}</option>) }
+                            { this.state.countries.map(country => 
+                            <option key={country.code}>{country.name}</option>
+                            ) 
+                            }
                         </select>
                     </label>
                     <br></br>
