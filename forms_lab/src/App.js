@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <h1>Mission to Mars Registration Form</h1>
       <Form/>
+      <footer id="results"></footer>
     </div>
   );
 }
