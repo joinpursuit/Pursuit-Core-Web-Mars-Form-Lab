@@ -9,7 +9,8 @@ state = {
     dateOfBirth: "", 
     country: "", 
     dietaryOptions: "",
-    question: ""
+    question: "",
+    formCompleted: false
 }
 handleChange = (event) => {
     this.setState({
@@ -19,6 +20,15 @@ handleChange = (event) => {
 
 handleSubmit = (event) => {
     event.preventDefault()
+    this.setState(prevState => {
+        return {
+            formCompleted: !prevState.formCompleted
+        }
+    })
+}
+
+handleFormSubmitted = (event) => {
+
 }
 
 render() {
@@ -27,7 +37,7 @@ render() {
         <>
          <h1>Mission to Mars Registration From</h1>
             <div>
-                <form>
+                <form required >
                 <label>
                     First Name:
                     <input required type="text" name="firstName" value={this.state.firstName} onChange={this.handleChange} placeholder="First Name"/>
@@ -66,8 +76,9 @@ render() {
                         <input required type="text" name="question" value={this.state.question} onChange={this.handleChange}/>
                     </label>
                     <br/>
-                    <button required type="Submit" onChange={this.handleSubmit}>Submit</button>
+                    <button type="Submit" onClick={this.handleSubmit}>Submit</button>
                 </form>
+                <button>Form Submitted</button>
             </div>
     </>
     ) 
