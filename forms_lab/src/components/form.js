@@ -18,6 +18,14 @@ class Form extends React.Component{
             [e.target.name]:e.target.value
         })
     }
+
+    handleCompletedForm=(e)=>{
+        document.body.innerHTML=""
+        // this.createSecondFOrm()
+        let p = document.createElement("p")
+        p.innerText="Thank you for your application"
+        document.body.appendChild(p)
+    }
     handleSubmit=(e)=>{
         e.preventDefault()
         let results=document.querySelector("#results")
@@ -32,6 +40,10 @@ class Form extends React.Component{
             results.appendChild(p)
         }
         form.reset()
+        let confirmButton = document.createElement("button")
+        confirmButton.innerText = "all correct"
+        results.appendChild(confirmButton)
+        confirmButton.onclick = this.handleCompletedForm
     }
     
     componentDidMount(){
