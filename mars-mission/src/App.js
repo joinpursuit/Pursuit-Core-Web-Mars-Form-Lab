@@ -5,7 +5,7 @@ import "./Components/css/App.css";
 function App() {
   return (
     <div className="App">
-      <h1>Mars Mission Canidate Questionaire</h1>
+      <h1>Mars Mission Candidate Form</h1>
       <Form />
     </div>
   );

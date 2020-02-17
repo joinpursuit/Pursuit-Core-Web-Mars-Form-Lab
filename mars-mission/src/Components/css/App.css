@@ -1,6 +1,9 @@
 .App {
   text-align: center;
   background-color: orange;
+  background-image: url("https://resize.prod.docfr.doc-media.fr/r/502,335,force/img/var/doctissimo/storage/images/fr/www/sante/news/un-compose-present-dans-le-raisin-pourrait-renforcer-les-muscles-des-astronautes-qui-iront-sur-mars/7856020-1-fre-FR/Un-compose-present-dans-le-raisin-pourrait-renforcer-les-muscles-des-astronautes-qui-iront-sur-Mars.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 5%;
   height: 100vh;
 }

@@ -49,13 +49,10 @@ class Form extends React.Component {
       <div>
         <p>Form Completed</p>
         <h3>{fullName}</h3>
-
-        <ul>
-          <li>{date}</li>
-          <li>{countries}</li>
-          <li>{diet}</li>
-          <li>{bodyResponse}</li>
-        </ul>
+        <p>{date}</p>
+        <p>{countries}</p>
+        <p>{diet}</p>
+        <p>{bodyResponse}</p>
       </div>
     );
   };
@@ -87,7 +84,7 @@ class Form extends React.Component {
     return (
       <div>
         <form className="form" onSubmit={this.handleForm}>
-        <h4>Fill Out Name:</h4>
+          <h4>Fill Out Name:</h4>
           <input
             type="text"
             value={fullName}
@@ -118,6 +115,7 @@ class Form extends React.Component {
           </select>
           <h4>Why Do You Want to be a Mars Explorer?:</h4>
           <input
+            id="inputText"
             type="text"
             value={bodyResponse}
             name="bodyResponse"
