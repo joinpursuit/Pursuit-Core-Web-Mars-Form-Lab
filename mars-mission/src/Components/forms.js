@@ -28,7 +28,7 @@ class Form extends React.Component {
 
   populateCountries = () => {
     return countriesList.map(countries => {
-      return <option value={countries.code}>{countries.name}</option>;
+      return <option value={countries.name}>{countries.name}</option>;
     });
   };
 
@@ -44,17 +44,43 @@ class Form extends React.Component {
 
   completedForm = () => {
     const { fullName, date, countries, diet, bodyResponse } = this.state;
-    debugger;
+    // debugger;
     return (
       <div>
-        <p>Form Completed</p>
-        <h3>{fullName}</h3>
-        <p>{date}</p>
-        <p>{countries}</p>
-        <p>{diet}</p>
-        <p>{bodyResponse}</p>
+        <p>
+          <b>Form Completed. Please check your information below.</b>
+        </p>
+        <h3>Name: {fullName}</h3>
+        <p>DOB: {date}</p>
+        <p>Country:{countries}</p>
+        <p>Dietary Preferences: {diet}</p>
+        <p>Your Response: {bodyResponse}</p>
+        <p>Is all of your information correct?</p>
+        <button type="submit" onClick={this.handleReset}>
+          Submit Your Application
+        </button>
       </div>
     );
+  };
+
+  handleReset = () => {
+    const {
+      fullName,
+      date,
+      countries,
+      diet,
+      bodyResponse,
+      formCompleted
+    } = this.state;
+    this.setState({
+      fullName: "",
+      date: {},
+      countries: {},
+      diet: {},
+      bodyResponse: "",
+      formCompleted: false,
+      reset: true
+    });
   };
 
   handleForm = e => {
@@ -68,7 +94,7 @@ class Form extends React.Component {
       bodyResponse,
       formCompleted
     } = this.state;
-    debugger;
+    // debugger;
     console.log({
       full_name: fullName,
       date: date,
@@ -127,6 +153,11 @@ class Form extends React.Component {
             Submit
           </button>
           {this.state.formCompleted === true ? this.completedForm() : false}
+          {this.state.reset === true ? (
+            <p>Thank you for submitting your application.</p>
+          ) : (
+            false
+          )}
         </form>
       </div>
     );
