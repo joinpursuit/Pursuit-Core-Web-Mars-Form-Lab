@@ -159,160 +159,158 @@ class Form extends React.Component {
               ></textarea>
             </label>
             <br></br>
-            <div id="radio">
-              <label>
-                Can You breathe underwater longer than 1 minute?
-                <br></br>
-                <label>
-                  Yes
-                  <input
-                    type="radio"
-                    value="yes"
-                    name="breathe_underwater"
-                    checked={breathe_underwater === "yes"}
-                    onChange={this.handleChange}
-                  />
-                </label>
-                <label>
-                  No
-                  <input
-                    type="radio"
-                    value="no"
-                    name="breathe_underwater"
-                    checked={breathe_underwater === "no"}
-                    onChange={this.handleChange}
-                  />
-                </label>
-                <label>
-                  I don't know
-                  <input
-                    type="radio"
-                    value="I don't know"
-                    name="breathe_underwater"
-                    checked={breathe_underwater === "I don't know"}
-                    onChange={this.handleChange}
-                  />
-                </label>
-              </label>
+            <label>
+              Can You breathe underwater longer than 1 minute?
               <br></br>
               <label>
-                What is your marital status?
-                <br></br>
-                <label>
-                  Married
-                  <input
-                    type="radio"
-                    value="married"
-                    name="marriage_status"
-                    checked={marriage_status === "married"}
-                    onChange={this.handleChange}
-                  />
-                </label>
-                <label>
-                  Unmarried
-                  <input
-                    type="radio"
-                    value="unmarried"
-                    name="marriage_status"
-                    checked={marriage_status === "unmarried"}
-                    onChange={this.handleChange}
-                  />
-                </label>
+                Yes
+                <input
+                  type="radio"
+                  value="yes"
+                  name="breathe_underwater"
+                  checked={breathe_underwater === "yes"}
+                  onChange={this.handleChange}
+                />
               </label>
+              <label>
+                No
+                <input
+                  type="radio"
+                  value="no"
+                  name="breathe_underwater"
+                  checked={breathe_underwater === "no"}
+                  onChange={this.handleChange}
+                />
+              </label>
+              <label>
+                I don't know
+                <input
+                  type="radio"
+                  value="I don't know"
+                  name="breathe_underwater"
+                  checked={breathe_underwater === "I don't know"}
+                  onChange={this.handleChange}
+                />
+              </label>
+            </label>
+            <br></br>
+            <label>
+              What is your marital status?
               <br></br>
               <label>
-                When you are in a stressful or difficult situation, how do you
-                most frequently react?
-                <br></br>
-                <label>
-                  Determination: I continue to confront the situation.
-                  <input
-                    type="radio"
-                    value="Determination: I continue to confront the situation."
-                    name="stress_reaction"
-                    checked={
-                      stress_reaction ===
-                      "Determination: I continue to confront the situation."
-                    }
-                    onChange={this.handleChange}
-                  />
-                </label>
-                <label>
-                  Defeat: I stop confronting the situation.
-                  <input
-                    type="radio"
-                    value="Defeat: I stop confronting the situation."
-                    name="stress_reaction"
-                    checked={
-                      stress_reaction ===
-                      "Defeat: I stop confronting the situation."
-                    }
-                    onChange={this.handleChange}
-                  />
-                </label>
-                <label>
-                  Anger: I become upset at the situation.
-                  <input
-                    type="radio"
-                    value="Anger: I become upset at the situation."
-                    name="stress_reaction"
-                    checked={
-                      stress_reaction ===
-                      "Anger: I become upset at the situation."
-                    }
-                    onChange={this.handleChange}
-                  />
-                </label>
-                <label>
-                  Resourcefulness: I seek help to confront the situation.
-                  <input
-                    type="radio"
-                    value="Resourcefulness: I seek help to confront the situation."
-                    name="stress_reaction"
-                    checked={
-                      stress_reaction ===
-                      "Resourcefulness: I seek help to confront the situation."
-                    }
-                    onChange={this.handleChange}
-                  />
-                </label>
+                Married
+                <input
+                  type="radio"
+                  value="married"
+                  name="marriage_status"
+                  checked={marriage_status === "married"}
+                  onChange={this.handleChange}
+                />
               </label>
+              <label>
+                Unmarried
+                <input
+                  type="radio"
+                  value="unmarried"
+                  name="marriage_status"
+                  checked={marriage_status === "unmarried"}
+                  onChange={this.handleChange}
+                />
+              </label>
+            </label>
+            <br></br>
+            <label>
+              When you are in a stressful or difficult situation, how do you
+              most frequently react?
               <br></br>
               <label>
-                Are you claustrophobic?
-                <br></br>
-                <label>
-                  Yes
-                  <input
-                    type="radio"
-                    value="yes"
-                    name="claustrophobic"
-                    checked={claustrophobic === "yes"}
-                    onChange={this.handleChange}
-                  />
-                </label>
-                <label>
-                  No
-                  <input
-                    type="radio"
-                    value="no"
-                    name="claustrophobic"
-                    checked={claustrophobic === "no"}
-                    onChange={this.handleChange}
-                  />
-                </label>
-                <label>
-                  I don't know
-                  <input
-                    type="radio"
-                    value="I don't know"
-                    name="claustrophobic"
-                    checked={claustrophobic === "I don't know"}
-                    onChange={this.handleChange}
-                  />
-                </label>
+                <input
+                  type="radio"
+                  value="Determination: I continue to confront the situation."
+                  name="stress_reaction"
+                  checked={
+                    stress_reaction ===
+                    "Determination: I continue to confront the situation."
+                  }
+                  onChange={this.handleChange}
+                />
+                Determination: I continue to confront the situation.
               </label>
-            </div>
+              <label>
+                <input
+                  type="radio"
+                  value="Defeat: I stop confronting the situation."
+                  name="stress_reaction"
+                  checked={
+                    stress_reaction ===
+                    "Defeat: I stop confronting the situation."
+                  }
+                  onChange={this.handleChange}
+                />
+                Defeat: I stop confronting the situation.
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="Anger: I become upset at the situation."
+                  name="stress_reaction"
+                  checked={
+                    stress_reaction ===
+                    "Anger: I become upset at the situation."
+                  }
+                  onChange={this.handleChange}
+                />
+                Anger: I become upset at the situation.
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="Resourcefulness: I seek help to confront the situation."
+                  name="stress_reaction"
+                  checked={
+                    stress_reaction ===
+                    "Resourcefulness: I seek help to confront the situation."
+                  }
+                  onChange={this.handleChange}
+                />
+                Resourcefulness: I seek help to confront the situation.
+              </label>
+            </label>
+            <br></br>
+            <label>
+              Are you claustrophobic?
+              <br></br>
+              <label>
+                Yes
+                <input
+                  type="radio"
+                  value="yes"
+                  name="claustrophobic"
+                  checked={claustrophobic === "yes"}
+                  onChange={this.handleChange}
+                />
+              </label>
+              <label>
+                No
+                <input
+                  type="radio"
+                  value="no"
+                  name="claustrophobic"
+                  checked={claustrophobic === "no"}
+                  onChange={this.handleChange}
+                />
+              </label>
+              <label>
+                I don't know
+                <input
+                  type="radio"
+                  value="I don't know"
+                  name="claustrophobic"
+                  checked={claustrophobic === "I don't know"}
+                  onChange={this.handleChange}
+                />
+              </label>
+            </label>
             <button type="submit">Submit</button>
           </form>
           {this.state.formCompleted ? (

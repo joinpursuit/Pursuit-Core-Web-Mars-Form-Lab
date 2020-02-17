@@ -20,11 +20,6 @@ textarea {
   font-size: 100%;
 }
 
-#radio {
-  display: flex;
-  flex-direction: column;
-}
-
 h1{
     display: grid;
     justify-content: center;
@@ -60,4 +55,16 @@ img {
   height: 100px;
   justify-content: center;
   margin: auto;
+}
+
+button {
+    display: grid;
+    justify-self: center;
+    width: 200px;
+}
+
+select {
+    display: grid;
+    justify-self: center;
+    width: 25%;
 }
