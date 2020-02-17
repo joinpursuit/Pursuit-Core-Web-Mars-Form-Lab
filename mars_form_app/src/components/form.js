@@ -1,5 +1,6 @@
 import React from "react";
 import { countries } from "./countries";
+import '../master/form.css'
 
 // class component
 class Form extends React.Component {
@@ -12,7 +13,6 @@ class Form extends React.Component {
     formCompleted: false,
     formSubmitted: false
   };
-
 
   handleChange = e => {
     e.preventDefault();
@@ -84,6 +84,7 @@ class Form extends React.Component {
     if(!this.state.formSubmitted){
         return (
           <div>
+            <img src="https://i.pinimg.com/originals/e5/bd/23/e5bd23574cee3222e088a5de04c28eaf.jpg"></img>
             <h1>Mission to Mars Registration Form</h1>
             <form onSubmit={this.formCompleted}>
               <label>
@@ -95,6 +96,7 @@ class Form extends React.Component {
                   onChange={this.handleChange}
                   placeholder="Enter Name"
                 />
+                <br></br>
               </label>
               <label>
                 What is your date of birth?
@@ -105,6 +107,7 @@ class Form extends React.Component {
                   onChange={this.handleChange}
                 />
               </label>
+              <br></br>
               <label>
                 Country:
                 <select value={country} name="country" onChange={this.handleChange}>
@@ -114,6 +117,7 @@ class Form extends React.Component {
                   {(country = this.populateSelect())}
                 </select>
               </label>
+              <br></br>
               <label>
                 Dietary Preference?
                 <select
@@ -132,15 +136,18 @@ class Form extends React.Component {
               <br></br>
               <label>
                 Why do you want to be a Mars explorer?
-                <input
+                <br></br>
+                <textarea
+                  cols="30"
+                  rows="5"
                   type="text"
                   value={whyMarsExpReason}
                   name="whyMarsExpReason"
                   placeholder="WHY?"
-                  style={{ width: "500px", height: "75px" }}
                   onChange={this.handleChange}
-                ></input>
+                ></textarea>
               </label>
+              <br></br>
               <button type="submit">Submit</button>
             </form>
             {this.state.formCompleted ? (

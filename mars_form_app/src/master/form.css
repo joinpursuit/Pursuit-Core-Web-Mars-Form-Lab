@@ -1,0 +1,45 @@
+body {
+  background: black;
+  opacity: 75%;
+  display: grid;
+  grid: 20% 20% 20% 20%;
+  justify-content: center;
+  margin: auto;
+  background: url("https://media3.giphy.com/media/3ohs4rclkSSrNGSlFK/giphy.gif?cid=790b76119a2f3bd8a152e5d6ca779b9dae5a0bb009846f36&rid=giphy.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+}
+
+input, textarea, select, button {
+    width : 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+form, ul, p{
+    padding: 20px;
+    color:white;
+    background:black;
+    display:grid;
+    justify-content: center;
+}
+
+img {
+    display: grid;
+    width: 250px;
+    height: 100px;
+    justify-content: center;
+    margin:auto;
+}
+
+
+
+
