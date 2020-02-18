@@ -311,6 +311,34 @@ class Form extends React.Component {
                 />
               </label>
             </label>
+            <label>
+              Does your family have a history of (check all that apply):
+              <br></br>
+              <label>
+                Cancer
+                <input
+                  type="checkbox"
+                  value="Cancer"
+                  name="family_history"
+                ></input>
+              </label>
+              <label>
+                Heart Disease
+                <input
+                  type="checkbox"
+                  value="Heart Disease"
+                  name="family_history"
+                ></input>
+              </label>
+              <label>
+                Diabetes
+                <input
+                  type="checkbox"
+                  value="Diabetes"
+                  name="family_history"
+                ></input>
+              </label>
+            </label>
             <button type="submit">Submit</button>
           </form>
           {this.state.formCompleted ? (
@@ -325,6 +353,5 @@ class Form extends React.Component {
     }
   }
 }
-
 
 export default Form;
