@@ -192,9 +192,7 @@ class Form extends React.Component{
                     </button>
 
                     {this.state.formCompleted === true ? this.formCompleted() : false}
-                    {this.state.reset === true} (
-                        
-                    )}
+                    {this.state.reset === true} 
                    
 
                 </form>
