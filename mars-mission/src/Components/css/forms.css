@@ -1,0 +1,29 @@
+h1 {
+  font-family: monospace;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 10%;
+  width: fit-content;
+  margin: auto;
+  border: 1px ridge whitesmoke;
+  background-color: rgba(247, 17, 17, 0.431);
+  text-align: center;
+  align-content: center;
+  font-family: monospace;
+  font-size: 12pt;
+}
+
+input {
+  font-family: monospace;
+}
+
+#inputText {
+  height: 150px;
+}
+
+form {
+  text-align: center;
+}
