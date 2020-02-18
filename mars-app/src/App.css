@@ -1,5 +1,14 @@
+/* * {
+  background-color: linear-gradient(red, orange, white);
+} */
+
 .App {
   text-align: center;
+  /* background-color: linear-gradient(red, orange, white); */
+}
+
+body {
+  background-color: linear-gradient(red, orange);
 }
 
 .App-logo {
@@ -35,4 +44,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.explorerInput {
+  width: 350px;
+  height: 15px;
 }
