@@ -193,9 +193,7 @@ class Form extends React.Component{
 
                     {this.state.formCompleted === true ? this.formCompleted() : false}
                     {this.state.reset === true} (
-                        <h3> Your application has been submitted. </h3>
-                    ) : (
-                        <h3> Your application was not submitted </h3>
+                        
                     )}
                    
 
