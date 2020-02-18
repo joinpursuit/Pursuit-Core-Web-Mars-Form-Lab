@@ -12,29 +12,29 @@ Our form is going to consist of single component, called `form.js`. You might ha
 
 Our app will be no different! It's your task to create parts of state, handler functions, and JSX input elements for all of our questions.
 
-## Step 1: Create a Form
+<!-- ## Step 1: Create a Form
 
 _Note: You are welcome to develop this in Codesandbox, but please submit a React project built on your GitHub! In other words, it has to have a local version, too._
 
 Create a component called `form.js` and import it into your `index.js` file. Place it into your `ReactDOM.render` function and have it
 render something small, like an `h1` tag that says "Mission to Mars Registration Form."
 
-Once that's working, add a `div` tag. This `div` will contain our form.
+Once that's working, add a `div` tag. This `div` will contain our form. -->
 
 ## Step 2: Create Inputs
 
 Inside that `div` tag, we're going to be rendering several `input` and `select` tags, including:
 
-- What is your name? (`text`).
+<!-- - What is your name? (`text`).
 - What is your date of birth?
   - You have two options here:
     - Three `select`s, for month, day, and year (starting at 1900 to the present) - how are you going to store this result in state?).
     - The [date](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date) input.
 - What is your country of origin? (one `select` - utilize this [JSON list of countries](https://gist.github.com/keeguon/2310008) to generate the options).
-- What is your dietary preference? (one `select`, with three options: `omnivore`, `vegetarian`, and `vegan`).
-- Why do you want to be a Mars explorer? (`text` - Use CSS to make this input larger, to imply a more lengthy response!).
+- What is your dietary preference? (one `select`, with three options: `omnivore`, `vegetarian`, and `vegan`). -->
+<!-- - Why do you want to be a Mars explorer? (`text` - Use CSS to make this input larger, to imply a more lengthy response!). -->
 
-Finally, create a button that says "submit." This button should update a part of state that demonstrates that the user has completed the form - something along the lines of `formCompleted`.
+<!-- Finally, create a button that says "submit." This button should update a part of state that demonstrates that the user has completed the form - something along the lines of `formCompleted`. -->
 
 ## Step 3: Verify Inputs
 
