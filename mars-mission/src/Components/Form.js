@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Confirmation from './Confirmation'
 import countries from '../Assets/countries'
 import '../CSS/form.css'
 
@@ -25,14 +26,16 @@ class Form extends Component {
         masterDegree: false,
         phd: false,
         otherEducationSpecified: "",
-        otherEducation: false
+        otherEducation: false,
+        formCompleted: false,
+        formSubmitted: false
     }
     handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
-    handleCheck = (event) => {
+    handleCheck = event => {
         event.persist()
         this.setState( (prevState) => {
             return {
@@ -40,15 +43,35 @@ class Form extends Component {
             }
         })
     }
-    handleSubmit = (event) => {
+    handleComplete = (event) => {
         event.preventDefault()
-        let {name, date, country, diet, why} = this.state
+        this.setState( (prevState) => {
+            return {
+                formCompleted: !prevState.formCompleted
+            }
+        })
+    }
+    handleSubmit = (event) => {
+        let {name, date, country, diet, why, cancer, heartDisease, diabetes, siblings, parents, grandparents, hsged, associateDegree, bachelorDegree, masterDegree, phd, otherEducation} = this.state 
         let registration = {
             name: name,
             date: date,
             country: country,
             diet: diet,
-            why: why
+            why: why,
+            cancer: cancer,
+            heartDisease: heartDisease,
+            diabetes: diabetes,
+            siblings: siblings,
+            parents: parents,
+            grandparents:  grandparents,
+            hsged: hsged,
+            associateDegree: associateDegree,
+            bachelorDegree: bachelorDegree,
+            masterDegree: masterDegree,
+            phd: phd,
+            otherEducationSpecified: otherEducation,
+            otherEducation: otherEducation
             }
             //event.target.firstName.value = ""
             //event.target.lastName.value = ""
@@ -75,14 +98,14 @@ class Form extends Component {
     //
 
     render () {
-        let {name, date, country, diet, why, cancer, heartDisease, diabetes, siblings, parents, grandparents, hsged, associateDegree, bachelorDegree, masterDegree, phd, otherEducation} = this.state 
+        let {name, date, country, diet, why, cancer, heartDisease, diabetes, siblings, parents, grandparents, hsged, associateDegree, bachelorDegree, masterDegree, phd, otherEducation, formCompleted} = this.state 
         let countryList = countries.map( country => {
                 return (<option key={country.code} name={country.name} value={country.name}>{country.name}</option>
                 )
             })
-            console.log(this.state)
         return(
-            <form onSubmit={this.handleSubmit}> 
+            <div>
+            <form onSubmit={this.handleComplete}> 
                 <div>
                     <label> 
                         Name:
@@ -238,6 +261,10 @@ class Form extends Component {
                 </fieldset>
                 <button type="submit">Submit</button>
             </form>
+            <div>
+            {formCompleted? <Confirmation props={this.state} onSubmitClick={this.handleSubmit}/> : null}
+            </div>
+            </div>
         )
     }
 
@@ -265,3 +292,4 @@ export default Form
 //     otherText.style.visibility = 'hidden';
 //   }
 // };
+
