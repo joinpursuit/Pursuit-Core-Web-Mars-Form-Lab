@@ -12,12 +12,32 @@ class Form extends Component {
         breathe: "",
         marital: "",
         stress: "",
-        claustrophobic: ""
+        claustrophobic: "",
+        cancer: false,
+        heartDisease: false,
+        diabetes: false,
+        siblings: false,
+        parents: false,
+        grandparents: false,
+        hsged: false,
+        associateDegree: false,
+        bachelorDegree: false,
+        masterDegree: false,
+        phd: false,
+        otherEducationSpecified: "",
+        otherEducation: false
     }
-
     handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
+        })
+    }
+    handleCheck = (event) => {
+        event.persist()
+        this.setState( (prevState) => {
+            return {
+                [event.target.value]: !prevState[event.target.value]
+            }
         })
     }
     handleSubmit = (event) => {
@@ -55,11 +75,12 @@ class Form extends Component {
     //
 
     render () {
-        let {name, date, country, diet, why} = this.state 
+        let {name, date, country, diet, why, cancer, heartDisease, diabetes, siblings, parents, grandparents, hsged, associateDegree, bachelorDegree, masterDegree, phd, otherEducation} = this.state 
         let countryList = countries.map( country => {
                 return (<option key={country.code} name={country.name} value={country.name}>{country.name}</option>
                 )
             })
+            console.log(this.state)
         return(
             <form onSubmit={this.handleSubmit}> 
                 <div>
@@ -155,34 +176,34 @@ class Form extends Component {
                     <legend>Does your family have a history of...? Check all that apply:</legend>
                         <label>
                             Cancer
-                            <input type="checkbox" value="cancer" name="familymedhistory" checked={cancer} onChange={this.handleChange}/>
+                            <input type="checkbox" value="cancer" name="familymedhistory" checked={cancer} onChange={this.handleCheck}/>
                         </label>
                         <label>
                             Heart Disease
-                            <input type="checkbox" value="heart-disease" name="familymedhistory" checked={heart-disease} onChange={this.handleChange}/>
+                            <input type="checkbox" value="heartDisease" name="familymedhistory" checked={heartDisease} onChange={this.handleCheck}/>
                         </label>
                         <label> 
                             Diabetes
-                            <input type="checkbox" value="diabetes" name="familymedhistory" checked={diabetes} onChange={this.handleChange}/>
+                            <input type="checkbox" value="diabetes" name="familymedhistory" checked={diabetes} onChange={this.handleCheck}/>
                         </label>
                 </fieldset>
                 <fieldset>
                     <legend>Do you have any living...? Check all that apply:</legend>
                         <label>
                             Siblings
-                            <input type="checkbox" value="siblings" name="livingfamily" checked={siblings} onChange={this.handleChange}/>
+                            <input type="checkbox" value="siblings" name="livingfamily" checked={siblings} onChange={this.handleCheck}/>
                         </label>
                         <label>
                             Parents
-                            <input type="checkbox" value="parents" name="ivingfamily" checked={parents} onChange={this.handleChange}/>Parents
+                            <input type="checkbox" value="parents" name="livingfamily" checked={parents} onChange={this.handleCheck}/>
                         </label>
                         <label>
                             Grandparents
-                            <input type="checkbox" value="grandparents" name="ivingfamily" checked={grandparents} onChange={this.handleChange}/>
+                            <input type="checkbox" value="grandparents" name="ivingfamily" checked={grandparents} onChange={this.handleCheck}/>
                         </label>
                         <label>
                             Number of Living Relatives
-                            <input type="number" value="0" name="livingfamily" hidden="true" onChange={this.handleChange}/>
+                            <input type="number" value="0" name="livingfamily" hidden="true" onChange={this.handleCheck}/>
                         </label>
                 </fieldset>
                 <fieldset>
@@ -190,29 +211,29 @@ class Form extends Component {
                         <label>
                         High School or GED
                         </label>
-                            <input type="checkbox" value="HSGED" name="education" checked={hsged} onChange={this.handleChange}/>
+                            <input type="checkbox" value="hsged" name="education" checked={hsged} onChange={this.handleCheck}/>
                         <label>
                             Associate's Degree
-                            <input type="checkbox" value="Associate'sDegree" name="education" checked={associatedegree} onChange={this.handleChange}/>
+                            <input type="checkbox" value="associateDegree" name="education" checked={associateDegree} onChange={this.handleCheck}/>
                         </label>
                         <label>
                             Bachelor's Degree
-                            <input type="checkbox" value="Bachelor'sDegree" name="education" checked={bachelordegree} nChange={this.handleChange}/>
+                            <input type="checkbox" value="bachelorDegree" name="education" checked={bachelorDegree} onChange={this.handleCheck}/>
                         </label>
                         <label>
                             Master's Degree
-                            <input type="checkbox" value="Master'sDegree" name="education" checked={masterdegree} nChange={this.handleChange}/>
+                            <input type="checkbox" value="masterDegree" name="education" checked={masterDegree} onChange={this.handleCheck}/>
                         </label>
                         <label>
                             PhD
-                            <input type="checkbox" value="PhD" name="education" checked={phd} onChange={this.handleChange}/>
+                            <input type="checkbox" value="phd" name="education" checked={phd} onChange={this.handleCheck}/>
                         </label>
                         <div>
                             <label>
                                 Other
-                                <input type="checkbox" value="Other" name="education" checked={otherEducation} onChange={this.handleChange}/>
+                                <input type="checkbox" value="otherEducation" name="education" checked={otherEducation} onChange={this.handleCheck}/>
                             </label>
-                            <input type="text" value="" name="education" placeholder="If Other, Please Specify" hidden="true" onChange={this.handleChange}/>
+                            <input type="text" value="otherEducationSpecified"  name="education" placeholder="If Other, Please Specify" hidden="true" onChange={this.handleChange}/>
                         </div>
                 </fieldset>
                 <button type="submit">Submit</button>
