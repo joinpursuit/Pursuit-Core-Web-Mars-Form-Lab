@@ -15,7 +15,19 @@ class Form extends React.Component {
     breathe_underwater: "",
     marriage_status: "",
     stress_reaction: "",
-    claustrophobic: ""
+    claustrophobic: "",
+    cancer: "",
+    heart_disease: "",
+    diabetes: "",
+    siblings: "",
+    parents: "",
+    grandparents: "",
+    highschool_ged_equivalent: "",
+    associates_degree: "",
+    bachelors_degree: "",
+    masters_degree: "",
+    phD: "",
+    other: ""
   };
 
   handleChange = e => {
@@ -25,9 +37,18 @@ class Form extends React.Component {
     });
   };
 
+  handleCheckbox = e => {
+    const name = e.target.name;
+    this.setState(prevState => {
+      return {
+        [name]: !prevState[name]
+      };
+    });
+  };
+
   formCompleted = e => {
     e.preventDefault();
-    let {
+    const {
       name,
       birthDate,
       country,
@@ -86,12 +107,27 @@ class Form extends React.Component {
       breathe_underwater,
       marriage_status,
       stress_reaction,
-      claustrophobic
+      claustrophobic,
+      cancer,
+      heart_disease,
+      diabetes,
+      siblings,
+      parents,
+      grandparents,
+      highschool_ged_equivalent,
+      associates_degree,
+      bachelors_degree,
+      masters_degree,
+      phD,
+      other
     } = this.state;
     if (!this.state.formSubmitted) {
       return (
         <div>
-          <img src="https://i.pinimg.com/originals/e5/bd/23/e5bd23574cee3222e088a5de04c28eaf.jpg"></img>
+          <img
+            src="https://i.pinimg.com/originals/e5/bd/23/e5bd23574cee3222e088a5de04c28eaf.jpg"
+            alt="space-x-logo"
+          ></img>
           <h1>Mission to Mars Registration Form</h1>
           <form onSubmit={this.formCompleted}>
             <label>
@@ -318,24 +354,115 @@ class Form extends React.Component {
                 Cancer
                 <input
                   type="checkbox"
-                  value="Cancer"
-                  name="family_history"
+                  name="cancer"
+                  checked={cancer}
+                  onChange={this.handleCheckbox}
                 ></input>
               </label>
               <label>
                 Heart Disease
                 <input
                   type="checkbox"
-                  value="Heart Disease"
-                  name="family_history"
+                  name="heart_disease"
+                  checked={heart_disease}
+                  onChange={this.handleCheckbox}
                 ></input>
               </label>
               <label>
                 Diabetes
                 <input
                   type="checkbox"
-                  value="Diabetes"
-                  name="family_history"
+                  name="diabetes"
+                  checked={diabetes}
+                  onChange={this.handleCheckbox}
+                ></input>
+              </label>
+            </label>
+            <label>
+              Do you have any living (check all that apply):
+              <br></br>
+              <label>
+                Siblings?
+                <input
+                  type="checkbox"
+                  name="siblings"
+                  checked={siblings}
+                  onChange={this.handleCheckbox}
+                ></input>
+              </label>
+              <label>
+                Parents?
+                <input
+                  type="checkbox"
+                  name="parents"
+                  checked={parents}
+                  onChange={this.handleCheckbox}
+                ></input>
+              </label>
+              <label>
+                Grandparents?
+                <input
+                  type="checkbox"
+                  name="grandparents"
+                  checked={grandparents}
+                  onChange={this.handleCheckbox}
+                ></input>
+              </label>
+            </label>
+            <label>
+              Check all educational credentials you have received:
+              <label>
+                High school diploma or GED equivalent
+                <input
+                  type="checkbox"
+                  name="highschool_ged_equivalent"
+                  checked={highschool_ged_equivalent}
+                  onChange={this.handleCheckbox}
+                ></input>
+              </label>
+              <label>
+                Associate's Degree
+                <input
+                  type="checkbox"
+                  name="associates_degree"
+                  checked={associates_degree}
+                  onChange={this.handleCheckbox}
+                ></input>
+              </label>
+              <label>
+                Bachelor's Degree
+                <input
+                  type="checkbox"
+                  name="bachelors_degree"
+                  checked={bachelors_degree}
+                  onChange={this.handleCheckbox}
+                ></input>
+              </label>
+              <label>
+                Master's Degree
+                <input
+                  type="checkbox"
+                  name="masters_degree"
+                  checked={masters_degree}
+                  onChange={this.handleCheckbox}
+                ></input>
+              </label>
+              <label>
+                PhD
+                <input
+                  type="checkbox"
+                  name="phD"
+                  checked={phD}
+                  onChange={this.handleCheckbox}
+                ></input>
+              </label>
+              <label>
+                Other
+                <input
+                  type="checkbox"
+                  name="other"
+                  checked={other}
+                  onChange={this.handleCheckbox}
                 ></input>
               </label>
             </label>
