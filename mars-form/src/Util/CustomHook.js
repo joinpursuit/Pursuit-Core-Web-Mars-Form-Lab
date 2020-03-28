@@ -2,6 +2,7 @@ import {useState} from 'react'
 
 function customHook(initalValue) {
     const [value, setValue] = useState(initalValue);
+    
     const reset = () =>{
         setValue(initalValue)
     };
