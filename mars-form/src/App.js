@@ -2,8 +2,7 @@ import React from "react";
 import "./App.css";
 import Form from "./Components/Forms";
 import { Route, Switch } from "react-router-dom";
-import ConfirmPage from './Components/ComfirmPage';
-import RadioInput from './Components/RadioInput'
+import RadioInput from '../src/Components/RadioInput/RadioInput'
 
 function App() {
   return (
@@ -14,9 +13,9 @@ function App() {
           <Form />
         </Route>
 
-        <Route path={'/confirm'}>
+        {/* <Route path={'/confirm'}>
           <ConfirmPage />
-        </Route>
+        </Route> */}
 
         <Route path={'/cont'}>
           <RadioInput />

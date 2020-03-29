@@ -5,8 +5,8 @@ import DOB from "./DOB";
 import UserInfo from "./UserInfo";
 import MarsInput from "./MarsInput";
 import useInput from "../Util/CustomHook";
-import InfoConfirm from './InfoConfirm';
-import RadioInput from './RadioInput'
+import RadioConfirm from './RadioConfirm';
+
 
 const Forms = () => {
   const [toggle, setToggle] = useState(false);
@@ -15,7 +15,6 @@ const Forms = () => {
   const dobInputObj = useInput("");
   const dietInputObj = useInput("");
   const countrySelectObj = useInput("");
-  const radioObj = useInput("")
 
   const formCompleted = e => {
     e.preventDefault();
@@ -24,8 +23,7 @@ const Forms = () => {
       marsInputObj.value === "" ||
       dobInputObj.value === "" ||
       dietInputObj.value === "" ||
-      countrySelectObj.value === ""||
-      radioObj.value === ""
+      countrySelectObj.value === ""
     ) {
       setToggle(false);
     } else {
@@ -37,8 +35,7 @@ const Forms = () => {
     dobInputObj.value,
     countrySelectObj.value,
     dietInputObj.value,
-    marsInputObj.value,
-    radioObj.value
+    marsInputObj.value
 
   ];
 
@@ -60,14 +57,13 @@ const Forms = () => {
           <CountrySelect countrySelectObj={countrySelectObj} />
           <Diets dietInputObj={dietInputObj} />
           <MarsInput marsInputObj={marsInputObj} />
-          <RadioInput radioObj={radioObj} />
           <button>Submit</button>
         </form>
         {toggle ? (
           <div>
             <ul style={ulstyle}>{userDisplay}</ul>
             <p>Is all this information true?</p>
-            <InfoConfirm />
+            <RadioConfirm />
           </div>
         ) : null}
       </div>

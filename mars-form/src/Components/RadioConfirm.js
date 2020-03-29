@@ -1,18 +1,18 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-const InfoConfirm = () => {
+const RadioConfirm = () => {
     const history = useHistory()
 
     const handleClick = (e) =>{
         e.preventDefault();
-        history.push('/confirm');
+        history.push('/cont');
     }
     return (
         <div>
-            <button type="click" onClick={handleClick}>Confirm!</button>
+            <button type="click" onClick={handleClick}>Next</button>
         </div>
     )
 }
 
-export default InfoConfirm
+export default RadioConfirm
