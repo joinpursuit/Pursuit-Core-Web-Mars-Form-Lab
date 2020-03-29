@@ -29,7 +29,6 @@ const Forms = () => {
       setToggle(true);
     }
   };
-  console.log(dobInputObj)
   const inputs = [
     userInfoObj.value,
     dobInputObj.value,
@@ -39,7 +38,7 @@ const Forms = () => {
   ];
 
   const userDisplay = inputs.map(input => {
-    return <li>{input}</li>;
+    return <li key={input}>{input}</li>;
   });
 
   const ulstyle = {

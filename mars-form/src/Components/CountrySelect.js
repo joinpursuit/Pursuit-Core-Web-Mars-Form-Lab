@@ -2,7 +2,6 @@ import React from "react";
 import { countries } from "./Countries";
 
 const CountrySelect = ({countrySelectObj}) => {
-  console.log(countrySelectObj)
   const countriesArr = countries.map(country => {
     return <option key={country.name}>{country.name}</option>;
   });
