@@ -5,6 +5,7 @@ import DOB from "./DOB";
 import UserInfo from "./UserInfo";
 import MarsInput from "./MarsInput";
 import useInput from "../Util/CustomHook";
+import InfoConfirm from './InfoConfirm'
 
 const Forms = () => {
   const [toggle, setToggle] = useState(false);
@@ -23,12 +24,26 @@ const Forms = () => {
       dietInputObj.value === "" ||
       countrySelectObj.value === ""
     ) {
-      alert('Please fill in the required fields');
-      setToggle(false)
-    }else{
-      setToggle(true)
+      setToggle(false);
+    } else {
+      setToggle(true);
     }
+  };
+  console.log(dobInputObj)
+  const inputs = [
+    userInfoObj.value,
+    dobInputObj.value,
+    countrySelectObj.value,
+    dietInputObj.value,
+    marsInputObj.value
+  ];
 
+  const userDisplay = inputs.map(input => {
+    return <li>{input}</li>;
+  });
+
+  const ulstyle = {
+    listStyleType: "none"
   };
 
   return (
@@ -43,7 +58,13 @@ const Forms = () => {
           <MarsInput marsInputObj={marsInputObj} />
           <button>Submit</button>
         </form>
-        {toggle ? <p>{userInfoObj.value}</p> : null}
+        {toggle ? (
+          <div>
+            <ul style={ulstyle}>{userDisplay}</ul>
+            <p>Is all this information true?</p>
+            <InfoConfirm />
+          </div>
+        ) : null}
       </div>
     </>
   );
