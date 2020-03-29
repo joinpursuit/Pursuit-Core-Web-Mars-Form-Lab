@@ -2,18 +2,26 @@ import React from "react";
 import "./App.css";
 import Form from "./Components/Forms";
 import { Route, Switch } from "react-router-dom";
-import ConfirmPage from './Components/ComfirmPage'
+import ConfirmPage from './Components/ComfirmPage';
+import RadioInput from './Components/RadioInput'
 
 function App() {
   return (
     <div className="App">
       <Switch>
+
         <Route exact path={'/'}>
           <Form />
         </Route>
+
         <Route path={'/confirm'}>
           <ConfirmPage />
         </Route>
+
+        <Route path={'/cont'}>
+          <RadioInput />
+        </Route>
+
 
       </Switch>
     </div>
