@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-function MarsInput() {
-  const [input, setInput] = useState("");
+const MarsInput = ({ marsInputObj }) => {
   const inputStyle = {
     width: "400px",
     height: "150px"
@@ -11,10 +10,9 @@ function MarsInput() {
       <label>Why do you want to be a Mars explorer?</label>
       <input
         type="text"
-        value={input}
         style={inputStyle}
-        onChange={e => setInput(e.target.value)}
-        maxlength="150"
+        {...marsInputObj}
+        maxLength="150"
       />
     </div>
   );

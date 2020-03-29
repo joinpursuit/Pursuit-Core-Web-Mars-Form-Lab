@@ -1,19 +1,12 @@
-import React, { useState } from 'react';
+import React from "react";
 
-function UserInfo() {
-    const [name, setName] = useState("");
-
-
-
-    return (
-        <div>
-            <label>What is your name?</label>
-          <input
-            type="text"
-            value={name}
-            onChange={e => setName(e.target.value)}/>
-        </div>
-    )
+function UserInfo({ userInfoObj }) {
+  return (
+    <div>
+      <label>What is your name?</label>
+      <input type="text" {...userInfoObj} />
+    </div>
+  );
 }
 
-export default UserInfo
+export default UserInfo;

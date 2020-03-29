@@ -1,18 +1,19 @@
 import React from "react";
 
-function Diets() {
+const Diets = ({dietInputObj}) => {
   const diets = [
     { type: "Omnivore" },
     { type: "Vegetarian" },
     { type: "Vegan" }
   ];
   const dietArr = diets.map(diet => {
-    return <option>{diet.type}</option>;
+    return <option key={diet.type}>{diet.type}</option>
   });
+
   return (
     <div>
       <label>What is your dietary preference?</label>
-      <select>{dietArr}</select>
+      <select {...dietInputObj}>{dietArr}</select>
     </div>
   );
 }
