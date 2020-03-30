@@ -16,4 +16,4 @@ const NextRadio = () => {
     )
 }
 
-export default NextRadio
+export default NextRadio;

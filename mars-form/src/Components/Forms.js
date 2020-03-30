@@ -5,7 +5,7 @@ import DOB from "./DOB";
 import UserInfo from "./UserInfo";
 import MarsInput from "./MarsInput";
 import useInput from "../Util/CustomHook";
-import RadioConfirm from './RadioConfirm';
+import NextRadio from '../Components/RadioInput/Buttons/NextRadio';
 
 
 const Forms = () => {
@@ -15,6 +15,7 @@ const Forms = () => {
   const dobInputObj = useInput("");
   const dietInputObj = useInput("");
   const countrySelectObj = useInput("");
+  const radioObj = useInput("");
 
   const formCompleted = e => {
     e.preventDefault();
@@ -63,7 +64,7 @@ const Forms = () => {
           <div>
             <ul style={ulstyle}>{userDisplay}</ul>
             <p>Is all this information true?</p>
-            <RadioConfirm />
+            <NextRadio radioObj={radioObj} />
           </div>
         ) : null}
       </div>

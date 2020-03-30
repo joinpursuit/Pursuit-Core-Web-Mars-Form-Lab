@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react';
+import NextRadioTwo from './Buttons/NextRadioTwo';
 
 const RadioInput = ({radioObj}) => {
+    const [toggle, setToggle] = useState(false);
+
+    const handleChange = (e) =>{
+        debugger
+        e.preventDefault();
+        if(radioObj === ""){
+            setToggle(false)
+        }else{
+            setToggle(true)
+        }
+    }
+
 
     return (
-        <div>
+        <div onChange={handleChange}>
         
             <p>Can you breathe underwater longer than 1 minute?</p>
             <input type='radio' {...radioObj} id='yes' name='air' value='yes'/>
@@ -13,6 +26,7 @@ const RadioInput = ({radioObj}) => {
             <input type='radio' {...radioObj} id='idk' name='air' value='idk'/>
             <label>I don't know</label>
 
+            {toggle ? <NextRadioTwo /> : <p>please fill in all requiered fields</p>}
         </div>
     )
 }

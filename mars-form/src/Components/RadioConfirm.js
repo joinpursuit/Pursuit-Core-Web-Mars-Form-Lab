@@ -15,4 +15,4 @@ const RadioConfirm = () => {
     )
 }
 
-export default RadioConfirm
+export default RadioConfirm;
